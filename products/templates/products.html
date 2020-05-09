@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div class="container">
+    <h2>Store</h2>
+    <div class="row">
+        <div class="col-12">
+            {% for product in products %}
+            <div class="card" style="width: 18rem;">
+                <img src="" style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title">{{product.name}}</h3>
+                    <div class="row">
+                        <span class="col-6">{{product.location}}</span>
+                        <span class="col-6">{{product.country}}</span>
+                    </div>
+                    <div class="row">
+                        <span class="col-6">{{product.start_date}}</span>
+                        {% if product.end_date %}
+                        <span class="col-6"> {{product.end_date}}</span>
+                        {% endif %}
+                    </div>
+                    <p class="card-text">{{product.snippet}}</p>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="#" class="btn btn-primary">View</a>
+                        </div>
+                        <div class="col-6">
+                            £{{product.price}}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
