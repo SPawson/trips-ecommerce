@@ -39,6 +39,7 @@ def return_products(request):
         if sort_by_query=='price-low': sort_by_value='price'
     
     products = Product.objects.all().order_by(sort_by_value)
+    
 
     if is_valid_query(name_or_location_contains_query):
         products = products.filter(Q(name__icontains=name_or_location_contains_query)
@@ -53,11 +54,27 @@ def return_products(request):
     if is_valid_query(date_query):
         products= products.filter(start_date__gte=date_query)
         
+    pagination = Paginator(products, 1)
+    page = request.GET.get('page')
+
+    try:
+        items = pagination.page(page)
+    except PageNotAnInteger:
+        items = pagination.page(1)
+    except EmptyPage:
+        items = pagination.page(pagination.num_pages)
+
+    index = items.number -1
+    max_index = len(pagination.page_range)
+    start_index = index - 5 if index >=5 else 0
+    end_index = index + 5 if index <= max_index - 5 else max_index
+    page_range = pagination.page_range[start_index:end_index]
 
     context = {
-        'products': products,
+        'items': items,
         'categories': return_categories(),
-        'countries': return_countries()
+        'countries': return_countries(),
+        'page_range': page_range,
     }
 
     return render(request, "products.html", context)

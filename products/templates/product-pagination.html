@@ -1,0 +1,35 @@
+{% load product_helper_tags %}
+
+{% if items.has_other_pages %}
+<div class="col-6 offset-3 text-center pagination-set">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if item.has_previous %}
+                <li class="page-item"><a class="page-link" aria-label="prev"  href="{% listing_url items.previous_page_number 'page' request.GET.urlencode %}">Prev</a></li>
+            {% else %}
+                <li class="page-item disabled"><a class="page-link"><span>Prev</span></a></li>
+            {% endif %}
+
+            {% for num in page_range %}
+                {% if items.number == num %}
+                    <li class="page-item active"><a class="page-link" href="#">{{num}}<span class="sr-only">(current)</span></a></li>
+                {% else %}
+                    <!-- <li class="page-item"><a class="page-link" href="?page={{num}}">{{num}}<span class="sr-only">(current)</span></a></li> -->
+                    <li class="page-item"><a class="page-link" href="{% listing_url num 'page' request.GET.urlencode %}">{{num}}<span class="sr-only">(current)</span></a></li>
+                    
+                {% endif %}
+
+            {% endfor %}
+
+            {% if item.has_next %}
+                <li class="page-item"><a class="page-link" aria-label="next" href="{% listing_url items.next_page_number 'page' request.GET.urlencode %}">Next</a></li>
+                
+            {% else %}
+                <li class="page-item disabled"><a class="page-link"><span>Next</span></a></li>
+            {% endif %}
+        </ul>
+      </nav>
+</div>
+{% else %}
+    <p>no pagination</p>
+{% endif %}

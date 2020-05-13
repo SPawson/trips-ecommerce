@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load product_helper_tags %}
 {% block header-content %}
 <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
 {% endblock %}
@@ -60,36 +61,39 @@
     <hr>
     <div class="row">
         <div class="col-12">
-            {% for product in products %}
+            {% for item in items %}
             <div class="card" style="width: 18rem;">
-                <img src="" style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')" class="card-img-top"
+                <img src="" style="background-image: url('{{ MEDIA_URL }}{{ item.images }}')" class="card-img-top"
                     alt="...">
                 <div class="card-body">
-                    <h3 class="card-title">{{product.name}}</h3>
+                    <h3 class="card-title">{{item.name}}</h3>
                     <div class="row">
-                        <span class="col-6">{{product.location}}</span>
-                        <span class="col-6">{{product.country}}</span>
+                        <span class="col-6">{{item.location}}</span>
+                        <span class="col-6">{{item.country}}</span>
                     </div>
                     <div class="row">
-                        <span class="col-6">{{product.start_date}}</span>
-                        {% if product.end_date %}
-                        <span class="col-6"> {{product.end_date}}</span>
+                        <span class="col-6">{{item.start_date}}</span>
+                        {% if item.end_date %}
+                        <span class="col-6"> {{item.end_date}}</span>
                         {% endif %}
                     </div>
-                    <p class="card-text">{{product.snippet}}</p>
+                    <p class="card-text">{{item.snippet}}</p>
 
                     <div class="row">
                         <div class="col-6">
                             <a href="#" class="btn btn-primary">View</a>
                         </div>
                         <div class="col-6">
-                            £{{product.price}}
+                            £{{item.price}}
                         </div>
                     </div>
 
                 </div>
             </div>
             {% endfor %}
+
+            {% include "product-pagination.html" %}
+
         </div>
     </div>
 </div>
