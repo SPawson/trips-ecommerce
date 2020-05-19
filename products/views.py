@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Product, Category, Country
+from .models import Product, Category, Country, Comment
+from .forms import  CommentForm
+import datetime
+from django.urls import reverse
 
 # Create your views here.
 
@@ -75,10 +78,42 @@ def return_products(request):
         'categories': return_categories(),
         'countries': return_countries(),
         'page_range': page_range,
+
     }
 
     return render(request, "products.html", context)
 
 
-    
-    
+def return_comments(pk):
+    """Returns a list of comments for the selected product"""
+    comments = Comment.objects.filter(product_id=pk)
+    return comments
+
+
+def product_detail(request, pk):
+    """ Retrieves the product detail
+    and serves the page to the user
+    """
+    product = get_object_or_404(Product, pk=pk)
+    comments = return_comments(pk)
+    comment_form = CommentForm()
+
+    context = {
+        'product':product,
+        'comments':comments,
+        'comment_form': comment_form
+    }
+
+    return render(request, 'product-detail.html', context)
+
+def create_comment(request, pk):
+    """Allows users to leave a comment on the product"""
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.cleaned_data['product_id'] = pk
+            #form.cleaned_data['post_date'] = datetime.date.today()
+            post = form.save()
+            return redirect(product_detail, pk)
+    else:
+        return redirect(request.META['HTTP_REFERER'])

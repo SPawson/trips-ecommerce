@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 
 class Category(models.Model):
     """Category model for the trips"""
@@ -35,5 +35,13 @@ class Product(models.Model):
         return self.description[:250] + "..."
 
 
+class Comment(models.Model):
+    """Model for product comments"""
+    name = models.CharField(max_length=100)
+    comment = models.TextField()
+    post_date = models.DateField(null=True, default=datetime.date.today())
+    product_id = models.ForeignKey(Product, default=None, on_delete=models.DO_NOTHING, null=True)
 
+    def __str__(self):
+        return self.name
 
