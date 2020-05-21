@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 #imports env var file, comment out before commiting to production
-import env
+#import env
 #Allows us to connect to a database via a url
 import dj_database_url
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'accounts',
     'products',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'django.template.context_processors.request',
+                'cart.contexts.cart_contents'
             ],
         },
     },

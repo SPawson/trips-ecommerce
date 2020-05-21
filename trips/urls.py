@@ -21,6 +21,7 @@ from django.conf.urls import url, include
 from home import urls as urls_home
 from accounts import urls as urls_account
 from products import urls as urls_product
+from cart import urls as urls_cart
 
 
 urlpatterns = [
@@ -28,6 +29,7 @@ urlpatterns = [
     url(r'^$', include(urls_home)),
     url(r'^accounts/', include(urls_account)),
     url(r'^store/', include(urls_product)),
+    url(r'^cart/', include(urls_cart)),
     url(r'^media/(?P<path>.*)', static.serve, {'document_root': MEDIA_ROOT}),
 
 ]
