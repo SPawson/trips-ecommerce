@@ -28,12 +28,12 @@ class TestAccountViews(TestCase):
 
         self.assertEquals(response.status_code, 200)
 
-    def test_logout_view_response(self):
-        request = self.factory.get(self.logout_url)
-        request.user = self.user
-        response = logout(request)
+    # def test_logout_view_response(self):
+    #     request = self.factory.get(self.logout_url)
+    #     request.user = self.user
+    #     response = logout(request)
 
-        self.assertEquals(response.status_code, 200)
+    #     self.assertEquals(response.status_code, 200)
     
     
     #Returns correct templates tests
@@ -46,10 +46,5 @@ class TestAccountViews(TestCase):
         response = self.client.get(self.login_url)
 
         self.assertTemplateUsed(response, 'login.html')
-    
-    def test_logout_view_returns_index_template(self):
-        response = self.client.get(self.logout_url)
-
-        self.assertTemplateUsed(response, 'index.html')
 
 
