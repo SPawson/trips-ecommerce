@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 #imports env var file, comment out before commiting to production
-#import env
+import env
 #Allows us to connect to a database via a url
 import dj_database_url
 
@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+    'stripe',
     'home',
     'accounts',
     'products',
     'cart',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +147,6 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')

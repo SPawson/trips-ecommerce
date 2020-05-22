@@ -10,7 +10,7 @@ def add_to_cart(request, id):
 
     cart = request.session.get('cart', {})
     if id in cart:
-        cart[id] = int(cart[id]) + quantity      
+        cart[id] = cart[id] + quantity      
     else:
         cart[id] = cart.get(id, quantity) 
 
