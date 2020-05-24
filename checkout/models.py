@@ -2,6 +2,7 @@ from django.db import models
 from products.models import Product
 from django.contrib.auth.models import User
 import datetime
+from django.core.validators import MinLengthValidator
 
 # Create your models here.
 
@@ -10,17 +11,19 @@ class OrderInformation(models.Model):
     """Stores users order information"""
 
     customer = models.ForeignKey(User, on_delete=models.PROTECT)
-    firstname = models.CharField(max_length=20, blank=False)
-    lastname = models.CharField(max_length=20, blank=False)
-    phone_number = models.CharField(max_length=20, blank=False)
-    town_or_city = models.CharField(max_length=40, blank=False)
-    address1 = models.CharField(max_length=40, blank=False)
-    address2 = models.CharField(max_length=40, blank=False)
-    postcode = models.CharField(max_length=20, blank=True)
-    county = models.CharField(max_length=40, blank=False)
-    country = models.CharField(max_length=40, blank=False)
+    firstname = models.CharField(max_length=20, validators=[MinLengthValidator(2)] ,blank=False)
+    lastname = models.CharField(max_length=20, validators=[MinLengthValidator(2)], blank=False)
+    phone_number = models.CharField(max_length=15, validators=[MinLengthValidator(11)], blank=False)
+    town_or_city = models.CharField(max_length=40, validators=[MinLengthValidator(2)], blank=False)
+    address1 = models.CharField(max_length=40, validators=[MinLengthValidator(2)], blank=False)
+    address2 = models.CharField(max_length=40, validators=[MinLengthValidator(2)], blank=False)
+    postcode = models.CharField(max_length=10, validators=[MinLengthValidator(6)], blank=True)
+    county = models.CharField(max_length=40, validators=[MinLengthValidator(2)], blank=False)
+    country = models.CharField(max_length=40, validators=[MinLengthValidator(2)], blank=False)
     order_date = models.DateField(default=datetime.date.today, null=True)
     paid = models.BooleanField(default=False)
+
+    validatiors=[MinLengthValidator(2)]
 
     def __str__(self):
         return "{0}-{1}-{2}-{3}".format(self.id, self.date, self.customer.username)

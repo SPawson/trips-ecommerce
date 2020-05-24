@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404, redirect, render, HttpResponse
 from trips import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -8,6 +8,8 @@ from products.models import Product
 from django.utils import timezone
 from django.contrib import messages
 import stripe
+import json
+from django.http import HttpResponseBadRequest
 from django.urls import reverse
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -43,6 +45,8 @@ def checkout(request):
                 )
                 order_line_item.save()
             
+            customer = None
+            
             try:
                 customer = stripe.Charge.create(
                     amount = int(total * 100), # as it is in pence
@@ -54,14 +58,20 @@ def checkout(request):
                 messages.error(request, "Your card was declined")
 
             if customer.paid:
-                messages.error(request, "You have successfully paid")
+                
                 request.session['cart'] = {}
-                return redirect(reverse('index'))
+                response = {'url':'/'}
+                return HttpResponse(json.dumps(response), content_type='application/json')
             else:
                 messages.error(request, "Unable to take payment at this time")
-        else:
-            messages.error(request, "We are unable to take a payment with that card")
+                response = {'stripe':'error'}
+                return HttpResponseBadRequest(json.dumps(response), content_type='application/json')
 
+        elif order_form.errors:
+            #json_order = json.dumps(order_form.errors)
+            #messages.error(request, "We are unable to take a payment with that card")
+            return HttpResponseBadRequest(order_form.errors.as_json(), content_type='application/json')
+        
     else:
         order_form = OrderForm()
         payment_form = MakePaymentForm()
