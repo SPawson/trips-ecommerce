@@ -27,6 +27,8 @@ class Product(models.Model):
     end_date = models.DateField(default=None, blank=True, null=True)
     images = models.ImageField(upload_to='media/images')
     category = models.ForeignKey(Category, default=None, on_delete=models.DO_NOTHING,)
+    latitude = models.DecimalField(max_digits=6, decimal_places=4, null=True)
+    longitude = models.DecimalField(max_digits=6, decimal_places=4, null=True)
 
     def __str__(self):
         return self.name

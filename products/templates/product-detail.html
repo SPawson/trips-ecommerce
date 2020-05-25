@@ -54,6 +54,13 @@
 
     <hr>
 
+    {% if product.latitude and product.longitude %}
+
+    <div id="location-map" style="min-height: 360px; margin-bottom: 10%;" data-lat="{{product.latitude}}" data-long="{{product.longitude}}">
+
+    </div>
+    {% endif %}
+
     {% if comments %}
 
     {% for comment in comments %}
@@ -92,13 +99,11 @@
         </div>
     </div>
 
+    
 
-
-
-
-
-
-    <!-- <form action="{% url 'create_comment' product.id %}" method="POST">
+</div>
+<!-- 
+    <form id="comment-form" action="{% url 'create_comment' product.id %}" method="POST">
         <div class="form-row">
             <div class="form-group col-12">
                 <label for="comment-name">Name</label>
@@ -115,3 +120,9 @@
     </form> -->
 
     {% endblock %}
+
+{% block scripts %}
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHHyac2SiOYPNYxXMK7rqJjnB8nCaaxE&callback=initMap"></script>
+<script src="{% static 'js/pages/product-detail.js' %}"></script>
+{% endblock %}

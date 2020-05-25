@@ -5,3 +5,14 @@ $(function() {
         'autoclose': true
     });
 });
+
+
+$(document).on('load', function(){
+
+    
+
+
+
+
+
+})

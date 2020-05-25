@@ -5,6 +5,7 @@ from .models import Product, Category, Country, Comment
 from .forms import  CommentForm
 import datetime
 from django.urls import reverse
+from django.http import HttpResponse, HttpResponseBadRequest
 
 # Create your views here.
 
@@ -97,6 +98,7 @@ def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     comments = return_comments(pk)
     comment_form = CommentForm()
+    comment_form.data['name'] = request.user.username
 
     context = {
         'product':product,
@@ -111,9 +113,15 @@ def create_comment(request, pk):
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
-            form.cleaned_data['product_id'] = pk
+            post = form.save(commit=False)
+            product = Product.objects.get(id=pk) 
+            post.product_id = product
+            post.post_date = datetime.date.today()
+            post.save()
             #form.cleaned_data['post_date'] = datetime.date.today()
-            post = form.save()
+            
             return redirect(product_detail, pk)
+        else:
+            return HttpResponseBadRequest()
     else:
         return redirect(request.META['HTTP_REFERER'])
