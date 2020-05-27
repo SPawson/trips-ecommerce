@@ -26,7 +26,7 @@ class OrderInformation(models.Model):
     validatiors=[MinLengthValidator(2)]
 
     def __str__(self):
-        return "{0}-{1}-{2}-{3}".format(self.id, self.date, self.customer.username)
+        return "{0}-{1}-{2}".format(self.id, self.order_date, self.customer.username)
 
 
 class OrderLineItem(models.Model):

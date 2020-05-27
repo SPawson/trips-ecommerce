@@ -20,9 +20,10 @@
         <div class="col-6">{{product.country}}</div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-6">
             {{product.start_date}} {% if product.end_date %} - {{product.end_date}} {% endif %}
         </div>
+        <div class="col-6">{{ product.likes }}</div>
     </div>
     <div class="row">
         <div class="col-12">
@@ -68,13 +69,18 @@
     <div class="card">
         <div class="row">
             <div class="col-6">
-                {{comment.name}}
+                {{comment.user_id.username}}
             </div>
 
             <div class="col-6">
                 {{comment.post_date}}
             </div>
         </div>
+        <!-- <div class="row">
+            <div class="col-12">
+                {{comment.liked}}
+            </div>
+        </div> -->
 
         <div class="row card-body">
             <div class="col-12">
@@ -87,6 +93,7 @@
 
     {% endif %}
 
+    {% if user.is_authenticated %}
     <div class="card">
         <div class="card-body row">
             <form method="POST" action="{% url 'create_comment' product.id %}" class="accountform">
@@ -98,6 +105,7 @@
             </form>
         </div>
     </div>
+    {% endif %}
 
     
 

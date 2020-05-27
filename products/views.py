@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
 from .models import Product, Category, Country, Comment
 from .forms import  CommentForm
 import datetime
@@ -87,7 +88,7 @@ def return_products(request):
 
 def return_comments(pk):
     """Returns a list of comments for the selected product"""
-    comments = Comment.objects.filter(product_id=pk)
+    comments = Comment.objects.filter(product_id=pk)[:5]
     return comments
 
 
@@ -98,7 +99,6 @@ def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     comments = return_comments(pk)
     comment_form = CommentForm()
-    comment_form.data['name'] = request.user.username
 
     context = {
         'product':product,
@@ -108,18 +108,20 @@ def product_detail(request, pk):
 
     return render(request, 'product-detail.html', context)
 
+@login_required
 def create_comment(request, pk):
     """Allows users to leave a comment on the product"""
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            product = Product.objects.get(id=pk) 
+            product = Product.objects.get(id=pk)
+            product.likes += 1
             post.product_id = product
+            post.user_id = request.user
             post.post_date = datetime.date.today()
             post.save()
-            #form.cleaned_data['post_date'] = datetime.date.today()
-            
+            product.save()
             return redirect(product_detail, pk)
         else:
             return HttpResponseBadRequest()
