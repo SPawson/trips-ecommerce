@@ -1,4 +1,3 @@
-
 var mapEl = document.getElementById("location-map");
 var lat = parseFloat(mapEl.dataset.lat);
 var long = parseFloat(mapEl.dataset.long);
