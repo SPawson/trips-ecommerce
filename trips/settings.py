@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 #imports env var file, comment out before commiting to production
-import env
+#import env
 #Allows us to connect to a database via a url
 import dj_database_url
 
@@ -96,6 +96,7 @@ if "DATABASE_URL" in os.environ:
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }      
 else:
+    print("Local db being used")
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
