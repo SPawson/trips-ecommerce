@@ -153,16 +153,22 @@ AWS_STORAGE_BUCKET_NAME = 'trips-ecommerce'
 AWS_S3_REGION_NAME = 'eu-west-1'
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-#any files with static at the root will be stored on AWS s3
-STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE= 'custom_storages.StaticStorage'
-#STATICFILES_STORAGE= 'storages.backends.s3boto3.S3Boto3Storage'
+if "DEV_ENVIROMENT" in os.environ:
+    MEDIA_URL = '/media/'
+else:
+    #production site use AWS storage for media and static files
+    MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
-MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    #any files with static at the root will be stored on AWS s3
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE= 'custom_storages.StaticStorage'
+
+# #STATICFILES_STORAGE= 'storages.backends.s3boto3.S3Boto3Storage'
+
 #'storages.backends.s3boto3.S3Boto3Storage'
 
 STATIC_URL = '/static/'
@@ -171,7 +177,16 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+#Local images
 
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
