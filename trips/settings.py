@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 #imports env var file, comment out before commiting to production
-#import env
+import env
 #Allows us to connect to a database via a url
 import dj_database_url
 

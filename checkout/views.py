@@ -33,7 +33,6 @@ def checkout(request):
             order.customer = request.user
             order.save()
 
-
             cart = request.session.get('cart', {})
             total = 0
             for id, quantity in cart.items():
@@ -44,10 +43,17 @@ def checkout(request):
                 quantity = quantity
                 )
                 order_line_item.save()
+
+            print(total)
+
+            saved_order = get_object_or_404(OrderInformation, pk=order.id)
+            saved_order.order_total = total
+            saved_order.save()
             
             customer = None
             
             try:
+                print("trying payment")
                 customer = stripe.Charge.create(
                     amount = int(total * 100), # as it is in pence
                     currency = "gbp",

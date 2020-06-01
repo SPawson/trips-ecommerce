@@ -21,12 +21,13 @@ class OrderInformation(models.Model):
     county = models.CharField(max_length=40, validators=[MinLengthValidator(2)], blank=False)
     country = models.CharField(max_length=40, validators=[MinLengthValidator(2)], blank=False)
     order_date = models.DateField(default=datetime.date.today, null=True)
-    paid = models.BooleanField(default=False)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    
 
     validatiors=[MinLengthValidator(2)]
 
     def __str__(self):
-        return "{0}-{1}-{2}".format(self.id, self.order_date, self.customer.username)
+        return "OrderID:{0} Date:{1} Customer:{2}".format(self.id, self.order_date, self.customer.username)
 
 
 class OrderLineItem(models.Model):
@@ -36,4 +37,4 @@ class OrderLineItem(models.Model):
     quantity = models.IntegerField(blank=False)
 
     def __str__(self):
-        return "{0} x {1} @ {2}".format(self.product.name, self.quantity, self.product.price)
+        return "OrderID:{0} - {1} x {2} @ {3}".format(self.order.id, self.product.name, self.quantity, self.product.price)

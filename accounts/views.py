@@ -4,6 +4,7 @@ from .forms import UserRegistrationForm, UserLoginForm
 from django.contrib import auth, messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from checkout.models import OrderInformation, OrderLineItem
 
 # Create your views here.
 
@@ -44,5 +45,20 @@ def logout(request):
     messages.success(request, "You have successfully been logged out")
     return redirect(reverse('index'))
 
+@login_required
+def profile(request):
+    """Allows the user to see their profile and order history"""
+    user = request.user
+    user_orders = get_user_orders(user)
+
+    return render(request, 'profile.html', {'user':user, 'orders':user_orders})
+
+
+def get_user_orders(user):
+    """Returns a list of the users orders"""
+
+    orders = OrderInformation.objects.filter(customer=user)
+
+    return orders
 
 #Code snippets for login taken from CI authentication lesson

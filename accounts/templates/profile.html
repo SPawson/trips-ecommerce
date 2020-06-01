@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>{{user.username}}</h2>
+
+<div class="row">
+    <div class="col-12">
+        {% for order in orders %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title">Order Id: {{order.id}}</h3>
+                <div class="row">
+                    <span class="col-6">{{order.order_date}}</span>
+                    <span class="col-6">{{order.order_total}}</span>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="/" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}
