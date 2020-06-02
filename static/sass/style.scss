@@ -1,8 +1,8 @@
-.card-blue {
-    background-color: rgb(84, 84, 211);
 
-}
+/*global*/
+@import "global/_media-queries";
+@import "global/globals";
 
-.test {
-    color: red;
-}
+/*Page imports*/
+@import "pages/_home";
+
