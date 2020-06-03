@@ -1,10 +1,10 @@
 {% load product_helper_tags %}
 
 {% if items.has_other_pages %}
-<div class="col-6 offset-3 text-center pagination-set">
+<div class="col-12 text-center pagination-set">
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            {% if item.has_previous %}
+            {% if items.has_previous %}
                 <li class="page-item"><a class="page-link" aria-label="prev"  href="{% listing_url items.previous_page_number 'page' request.GET.urlencode %}">Prev</a></li>
             {% else %}
                 <li class="page-item disabled"><a class="page-link"><span>Prev</span></a></li>
@@ -21,7 +21,7 @@
 
             {% endfor %}
 
-            {% if item.has_next %}
+            {% if items.has_next %}
                 <li class="page-item"><a class="page-link" aria-label="next" href="{% listing_url items.next_page_number 'page' request.GET.urlencode %}">Next</a></li>
                 
             {% else %}
@@ -31,5 +31,4 @@
       </nav>
 </div>
 {% else %}
-    <p>no pagination</p>
 {% endif %}

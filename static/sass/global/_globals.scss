@@ -25,3 +25,30 @@ body {
         }
     }
 }
+
+/*Buttons*/
+.btn {
+    &-pale {
+        &-pink{
+            background-color: #ff9494;
+            border: 1px solid #ff9494;
+            color: #ffffff;
+            font-weight: 400;
+
+            a {
+                color: #ffffff;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &-card {
+        color: #3c3c3c;
+        background-color: #ffffa1;
+        border-color: #fcfdff;
+        width: 8rem;
+        font-weight: 500;
+    }
+}
+
+/*Headings*/

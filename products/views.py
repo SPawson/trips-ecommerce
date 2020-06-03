@@ -59,7 +59,7 @@ def return_products(request):
     if is_valid_query(date_query):
         products= products.filter(start_date__gte=date_query)
         
-    pagination = Paginator(products, 1)
+    pagination = Paginator(products, 2)
     page = request.GET.get('page')
 
     try:

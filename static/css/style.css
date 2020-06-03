@@ -23,6 +23,78 @@ body {
   color: #212529;
 }
 
+/*Buttons*/
+.btn-pale-pink {
+  background-color: #ff9494;
+  border: 1px solid #ff9494;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.btn-pale-pink a {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.btn-card {
+  color: #3c3c3c;
+  background-color: #ffffa1;
+  border-color: #fcfdff;
+  width: 8rem;
+  font-weight: 500;
+}
+
+/*Headings*/
+/*Module Imports*/
+.card {
+  margin: 10% auto;
+  width: 20rem;
+}
+
+.card-top {
+  margin-bottom: 8%;
+}
+
+.card-top-img {
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 16rem;
+}
+
+.card-mid {
+  margin-bottom: 8%;
+}
+
+.card-head {
+  padding-left: 0;
+}
+
+.card-head span {
+  font-size: 0.9rem;
+  font-weight: 540;
+}
+
+.card-title {
+  margin-bottom: 1%;
+}
+
+.card-text {
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.card-location {
+  padding: 0;
+  text-transform: capitalize;
+}
+
+.card-price {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
 /*Page imports*/
 .carousel-inner {
   max-height: 75vh;
@@ -97,5 +169,15 @@ body {
   margin-top: 4%;
   margin-bottom: 4%;
   width: 75%;
+}
+
+.filters #cat-form {
+  margin-top: 2%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.filters #cat-form .form-group label {
+  font-weight: 500;
 }
 /*# sourceMappingURL=style.css.map */

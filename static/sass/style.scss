@@ -3,6 +3,12 @@
 @import "global/_media-queries";
 @import "global/globals";
 
+/*Module Imports*/
+@import "modules/cards";
+
 /*Page imports*/
 @import "pages/_home";
+@import "pages/_products";
+
+
 

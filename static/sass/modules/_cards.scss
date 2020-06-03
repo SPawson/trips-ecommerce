@@ -1,0 +1,48 @@
+.card {
+    margin: 10% auto;
+    width: 20rem;
+
+    &-top {
+        margin-bottom: 8%;
+
+        &-img {
+            width: 100%;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 16rem;
+        }
+    }
+
+    &-mid {
+        margin-bottom: 8%;
+    }
+
+    &-head {
+        padding-left: 0;
+
+        span {
+            font-size: 0.9rem;
+            font-weight: 540;
+        }
+    }
+
+    &-title {
+        margin-bottom: 1%;
+    }
+    &-text {
+        line-height: 24px;
+        word-wrap: break-word;
+
+    }
+
+    &-location {
+        padding: 0;
+        text-transform: capitalize;
+    }
+
+    &-price {
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+}
