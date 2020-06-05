@@ -2,8 +2,16 @@
     margin: 10% auto;
     width: 20rem;
 
+    @include media(medium){
+        width: 47rem;
+       }
+
     &-top {
         margin-bottom: 8%;
+        
+        @include media(medium){
+            margin-bottom: 2%;
+           }
 
         &-img {
             width: 100%;
@@ -16,6 +24,10 @@
 
     &-mid {
         margin-bottom: 8%;
+
+        @include media(medium){
+            margin-bottom: 4%;
+           }
     }
 
     &-head {
@@ -45,4 +57,66 @@
         font-size: 1.3rem;
         font-weight: 500;
     }
+
+    &-right {
+        @include media(large){
+            text-align: right;
+           }
+    }
+
+
+    &-comment {
+        border: 1px solid #a59b9b;
+        border-radius: 20px;
+        padding: 4%;
+
+        .header {
+            font-weight: 500;
+        }
+
+        .blue {
+            color: #5895d2;
+            margin-top: 5%;
+            margin-left: 5%;
+        }
+    }
+
+    form {
+        border: 1px solid #a59b9b;
+        border-radius: 20px;
+        padding: 4%;
+
+        label {
+            font-weight: 500;
+        }
+    }
+
+    &-create {
+        border: none !important;
+
+        .like-btn {
+            display: block;
+            margin-bottom: 10%;
+            font-weight: 500;
+
+            i {
+                font-size: 2rem;
+                margin-left: 2%;
+            }
+
+            i:hover {
+                color: #91b6da;
+            }
+
+            i.liked{
+                color: #5895d2;
+            }
+        }
+
+        .checkbox {
+            display: none;
+        }
+       
+    }
+
 }

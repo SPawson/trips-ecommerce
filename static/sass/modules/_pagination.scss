@@ -1,0 +1,44 @@
+.pagination {
+
+    &-set {
+
+        display: flex;
+
+        #pagination {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    }
+
+    .page {
+
+        &-item {
+
+            &.active {
+
+               .page-link {
+                background-color: #ffc49e;
+                border: 1px solid #ffa367;
+                color: white;
+               } 
+
+            }
+
+            &.disabled {
+
+                .page-link {
+                    color: #9c9797;
+                }
+                
+            }
+
+            .page-link {
+                color: black;
+            }
+            .page-link:hover {
+                background-color: #ffdfca;
+            }
+        }
+    }
+}

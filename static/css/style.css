@@ -1,13 +1,32 @@
 /*global*/
 body {
-  background-color: #f7f4f4;
+  background-color: #ffffff;
+}
+
+/*Navbar*/
+.navbar-trips {
+  background-color: #fdf7ff;
+  border-bottom: 1px solid #f9eef9;
+}
+
+.navbar-toggler {
+  border: 1px solid #4a3d3d66;
+}
+
+.navbar-brand {
+  font-weight: 500;
+}
+
+.navbar a {
+  color: #c3bbbb;
 }
 
 /*Footer*/
 .page-footer {
   margin-top: 4%;
   padding: 1%;
-  background-color: #f9dfa9;
+  background-color: #fffcde;
+  border-top: 1px solid #fff4cb;
 }
 
 .page-footer a {
@@ -24,22 +43,19 @@ body {
 }
 
 /*Buttons*/
-.btn-pale-pink {
-  background-color: #ff9494;
-  border: 1px solid #ff9494;
+.btn-pale-orange {
+  background-color: #ffc49e;
+  border: 1px solid #ffa367;
   color: #ffffff;
   font-weight: 400;
 }
 
-.btn-pale-pink a {
+.btn-pale-orange a {
   color: #ffffff;
   font-weight: 400;
 }
 
 .btn-card {
-  color: #3c3c3c;
-  background-color: #ffffa1;
-  border-color: #fcfdff;
   width: 8rem;
   font-weight: 500;
 }
@@ -51,8 +67,20 @@ body {
   width: 20rem;
 }
 
+@media only screen and (min-width: 900px) {
+  .card {
+    width: 47rem;
+  }
+}
+
 .card-top {
   margin-bottom: 8%;
+}
+
+@media only screen and (min-width: 900px) {
+  .card-top {
+    margin-bottom: 2%;
+  }
 }
 
 .card-top-img {
@@ -65,6 +93,12 @@ body {
 
 .card-mid {
   margin-bottom: 8%;
+}
+
+@media only screen and (min-width: 900px) {
+  .card-mid {
+    margin-bottom: 4%;
+  }
 }
 
 .card-head {
@@ -93,6 +127,94 @@ body {
 .card-price {
   font-size: 1.3rem;
   font-weight: 500;
+}
+
+@media only screen and (min-width: 1400px) {
+  .card-right {
+    text-align: right;
+  }
+}
+
+.card-comment {
+  border: 1px solid #a59b9b;
+  border-radius: 20px;
+  padding: 4%;
+}
+
+.card-comment .header {
+  font-weight: 500;
+}
+
+.card-comment .blue {
+  color: #5895d2;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.card form {
+  border: 1px solid #a59b9b;
+  border-radius: 20px;
+  padding: 4%;
+}
+
+.card form label {
+  font-weight: 500;
+}
+
+.card-create {
+  border: none !important;
+}
+
+.card-create .like-btn {
+  display: block;
+  margin-bottom: 10%;
+  font-weight: 500;
+}
+
+.card-create .like-btn i {
+  font-size: 2rem;
+  margin-left: 2%;
+}
+
+.card-create .like-btn i:hover {
+  color: #91b6da;
+}
+
+.card-create .like-btn i.liked {
+  color: #5895d2;
+}
+
+.card-create .checkbox {
+  display: none;
+}
+
+.pagination-set {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.pagination-set #pagination {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #ffc49e;
+  border: 1px solid #ffa367;
+  color: white;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #9c9797;
+}
+
+.pagination .page-item .page-link {
+  color: black;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #ffdfca;
 }
 
 /*Page imports*/
@@ -171,6 +293,10 @@ body {
   width: 75%;
 }
 
+.filters form {
+  margin: 0 auto;
+}
+
 .filters #cat-form {
   margin-top: 2%;
   margin-left: 4%;
@@ -179,5 +305,67 @@ body {
 
 .filters #cat-form .form-group label {
   font-weight: 500;
+}
+
+.product .image-container {
+  height: 20rem;
+  padding: 0;
+  margin-bottom: 4%;
+}
+
+.product .image-container .card-top-img {
+  height: 100%;
+}
+
+.product .card-top {
+  padding: 3%;
+}
+
+.product .card-title {
+  margin-bottom: 1%;
+  font-size: 2rem;
+}
+
+.product .card-head {
+  font-size: 1.2rem;
+}
+
+.product .card-head span {
+  font-size: 1.2rem;
+}
+
+.product .card-head i {
+  color: #5895d2;
+  line-height: 2rem;
+}
+
+.product .card-description button {
+  margin-top: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12%;
+}
+
+.product-add {
+  margin-bottom: 10%;
+}
+
+.product-add form {
+  border: 1px solid #a59b9b;
+  border-radius: 20px;
+}
+
+.product-add form .form-control.quantity {
+  width: 14%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product .divider {
+  margin-bottom: 10%;
+}
+
+.product .hidden {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

@@ -4,11 +4,14 @@
 @import "global/globals";
 
 /*Module Imports*/
-@import "modules/cards";
+@import "modules/_cards";
+@import "modules/_pagination";
 
 /*Page imports*/
 @import "pages/_home";
 @import "pages/_products";
+@import "pages/_product-detail";
+
 
 
 

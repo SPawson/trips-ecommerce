@@ -51,8 +51,8 @@
                 </div>
 
                 <div class="form-group col-sm-12">
-                    <input type="submit" value="Search" class="btn btn-pale-pink">
-                    <button type="button" class="btn btn-pale-pink"><a href="{% url 'products' %}">Reset</a></button>
+                    <input type="submit" value="Search" class="btn btn-pale-orange">
+                    <button type="button" class="btn btn-pale-orange"><a href="{% url 'products' %}">Reset</a></button>
                 </div>
             </div>
 
@@ -86,9 +86,9 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <a href="{% url 'product_detail' item.id %}" class="btn btn-card">View</a>
+                            <a href="{% url 'product_detail' item.id %}" class="btn btn-pale-orange btn-card">View</a>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 card-right">
                             <span class="card-price">£{{item.price}} pp</span> 
                         </div>
                     </div>

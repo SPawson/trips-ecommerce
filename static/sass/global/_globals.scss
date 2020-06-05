@@ -1,12 +1,38 @@
 body {
-    background-color: #f7f4f4;
+    background-color: #ffffff;
+}
+
+/*Navbar*/
+.navbar {
+    &-trips {
+        background-color: #fdf7ff;
+        border-bottom: 1px solid #f9eef9;
+    }
+
+    &-toggler {
+        border: 1px solid #4a3d3d66;
+
+        // &-icon {
+            
+        // }
+    }
+
+    &-brand {
+        font-weight: 500;
+    }
+
+    a { 
+        color: #c3bbbb;
+        
+    }
 }
 
 /*Footer*/
 .page-footer {
     margin-top: 4%;
     padding: 1%;
-    background-color: #f9dfa9;
+    background-color: #fffcde;
+    border-top: 1px solid #fff4cb;
 
     a {
         color: #212529;
@@ -29,9 +55,9 @@ body {
 /*Buttons*/
 .btn {
     &-pale {
-        &-pink{
-            background-color: #ff9494;
-            border: 1px solid #ff9494;
+        &-orange{
+            background-color: #ffc49e;
+            border: 1px solid #ffa367;
             color: #ffffff;
             font-weight: 400;
 
@@ -43,9 +69,9 @@ body {
     }
 
     &-card {
-        color: #3c3c3c;
-        background-color: #ffffa1;
-        border-color: #fcfdff;
+        //color: #3c3c3c;
+        //@warn: #ffffa1;
+        //border-color: #fcfdff;
         width: 8rem;
         font-weight: 500;
     }

@@ -1,0 +1,72 @@
+.product {
+
+    .image-container {
+        height: 20rem;
+        padding: 0;
+        margin-bottom: 4%;
+
+        .card-top-img {
+            height: 100%;
+        }
+    }
+
+
+    .card {
+
+        &-top {
+            padding: 3%;
+        }
+
+        &-title {
+            margin-bottom: 1%;
+            font-size: 2rem;
+        }
+
+        &-head {
+            font-size: 1.2rem;
+            
+
+            span {
+                font-size: 1.2rem;
+            }
+
+            i {
+                color: #5895d2;
+                line-height: 2rem;
+            }
+        }
+
+        &-description {
+
+            button {
+                margin-top: 4%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 12%;
+            }
+        }
+    }
+
+    &-add{
+        margin-bottom: 10%;
+
+        form {
+            border: 1px solid #a59b9b;
+            border-radius: 20px;
+
+            .form-control.quantity {
+                width: 14%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    .divider {
+        margin-bottom: 10%;
+    }
+
+    .hidden {
+        display: none;
+    }
+}

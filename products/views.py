@@ -116,7 +116,9 @@ def create_comment(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             product = Product.objects.get(id=pk)
-            product.likes += 1
+            print(request.POST.get("like",False))
+            if request.POST.get("like",False) == "on":
+                product.likes += 1
             post.product_id = product
             post.user_id = request.user
             post.post_date = datetime.date.today()
