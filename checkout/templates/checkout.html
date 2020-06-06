@@ -7,66 +7,91 @@
 
 <div class="container">
     <div class="row">
-        <div class="card">
+        <div class="card card--cart">
             <div class="card-body col-12">
-                <h5 class="card-title">Checkout Overview</h5>
+
+                <div class="heading text-center">
+                    <h4 class="card-title">Checkout Overview</h4>
+                </div>
+
 
                 {% for item in cart_items %}
                 <div class="row item">
                     <div class="col-6">
                         {{item.product.name}}
                     </div>
-                    <div class="col-6">
-                        {{item.product.price}}
+                    <div class="col-6 text-right">
+                        <span class="item-price">£{{item.product.price}}</span>
                     </div>
-                    <div class="col-12">
-                        <div class="input-group">
-                            <p>Qty: {{item.quantity}}</p>
-                        </div>
+                    <div class="col-12 form-container">
+                            {% csrf_token %}
+                            <div class="form-group text-center row">
+                                <div class="col-6">
+                                    <label class="sr-only">New Qty</label>
+                                    <div class="input-group">
+                                        <span class="item-amount">{{item.quantity}}</span> <p>Amount</p>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
 
                 </div>
-
+                <hr class="divider">
+                {% endfor %}
+                <div class="heading text-right">
+                    <h5>Total: £{{total}}</h5>
+                </div>
+                
             </div>
-            <hr>
-            {% endfor %}
-            <h4>Total: {{total}}</h4>
-
-
-
         </div>
     </div>
+
+
+
     <div class="row">
         <div class="col-12">
-            <h3>Billing</h3>
-            <hr>
+           
         </div>
     </div>
     <div class="row">
         <div class="col-12">
             <form method="POST" id="payment-form" action="{% url 'checkout' %}">
                 {% csrf_token %}
-                <div id="form-errors" style="display: none;">
-                    <ul class="error-list">
-                        
-                    </ul>
-                </div>
-            
-                <div class="form-group col-md-12">
-                    {{ order_form | as_bootstrap }}
-                </div>
 
-                <h3>Card Details</h3>
-                <hr>
-
-                <div class="form-group col-md-12">
-                    {{ payment_form | as_bootstrap }}
+                <div class="form-row">
+                    <div id="form-errors" style="display: none;">
+                        <ul class="error-list">
+                            
+                        </ul>
+                    </div>
                 </div>
-            
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-6 form-fields">
+                        <div class="heading text-center">
+                            <h5>Billing</h5>
+                        </div>
+                        <hr class="divider">
+                        {{ order_form | as_bootstrap }}
+                    </div>
+    
+                    
+    
+                    <div class="form-group col-12 col-md-6 form-fields">
+                        <div class="heading text-center">
+                            <h5>Card Details</h5>
+                        </div>
+                        <hr class="divider">
+    
+                        {{ payment_form | as_bootstrap }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12 text-center">
+                        <input class=" btn btn-pale-pink" id="submit_payment_btn" name="commit" type="submit" value="Checkout">
+                    </div>
+                </div>
                 
-                <div class="form-group col-md-12">
-                    <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-                </div>
+                
             </form>
         </div>
     </div>

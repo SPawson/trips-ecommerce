@@ -5,48 +5,65 @@
 
 <div class="container">
     <div class="row">
-        <div class="card">
+        <div class="card card--cart">
             <div class="card-body col-12">
-                <h5 class="card-title">Checkout Overview</h5>
+
+                <div class="heading text-center">
+                    <h4 class="card-title">Checkout Overview</h4>
+                </div>
+
 
                 {% for item in cart_items %}
-                    <div class="row item">
-                        <div class="col-6">
-                            {{item.product.name}}
-                        </div>
-                        <div class="col-6">
-                            {{item.product.price}}
-                        </div>
-                        <div class="col-12">
-                            <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                <div class="row item">
+                    <div class="col-6">
+                        {{item.product.name}}
+                    </div>
+                    <div class="col-6 text-right">
+                        <span class="item-price">£{{item.product.price}}</span>
+                    </div>
+                    <div class="col-12 form-container">
+                        <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                            {% csrf_token %}
+                            <div class="form-group text-center row">
+                                <div class="col-6">
+                                    <label class="sr-only">New Qty</label>
                                     <div class="input-group">
-                                        <div class="input-group-addon">Qty</div>
-                                        <input value="{{item.quantity}}" name="quantity" type="number" min="0" max="999" class="form-control">
+                                        <div class="input-group-addon">Qty:</div>
+                                        <input value="{{item.quantity}}" name="quantity" type="number" min="0" max="999"
+                                            class="form-control">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-                            </form>
-                        </div>
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-pale-orange"><span class="glyphicon glyphicon-edit"
+                                            aria-hidden="true"></span>Amend</button>
+                                </div>
 
+
+
+                            </div>
+
+                        </form>
                     </div>
-                    <hr>
+
+                </div>
+                <hr class="divider">
                 {% endfor %}
-                    <h4>Total: {{total}}</h4>
+                <div class="heading text-right">
+                    <h5>Total: £{{total}}</h5>
+                </div>
+                
 
 
 
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <a href="{% url 'products' %}" class="btn btn-primary">Continue Shopping</a>
+    <div class="row text-center btn-btm-container">
+        <div class="col-12">
+            <a href="{% url 'products' %}" class="btn btn-pale-orange cart-btn">Continue Shopping</a>
         </div>
-        <div class="col-6">
-            <a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
+        <div class="col-12">
+            <a href="{% url 'checkout' %}" class="btn btn-pale-pink cart-btn">Checkout</a>
         </div>
     </div>
 </div>

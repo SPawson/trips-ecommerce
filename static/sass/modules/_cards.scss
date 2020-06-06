@@ -2,16 +2,22 @@
     margin: 10% auto;
     width: 20rem;
 
-    @include media(medium){
+    &--cart {
+        @include media(medium) {
+            margin: 4% auto;
+        }
+    }
+
+    @include media(medium) {
         width: 47rem;
-       }
+    }
 
     &-top {
         margin-bottom: 8%;
-        
-        @include media(medium){
+
+        @include media(medium) {
             margin-bottom: 2%;
-           }
+        }
 
         &-img {
             width: 100%;
@@ -25,9 +31,9 @@
     &-mid {
         margin-bottom: 8%;
 
-        @include media(medium){
+        @include media(medium) {
             margin-bottom: 4%;
-           }
+        }
     }
 
     &-head {
@@ -42,6 +48,7 @@
     &-title {
         margin-bottom: 1%;
     }
+
     &-text {
         line-height: 24px;
         word-wrap: break-word;
@@ -59,9 +66,9 @@
     }
 
     &-right {
-        @include media(large){
+        @include media(large) {
             text-align: right;
-           }
+        }
     }
 
 
@@ -114,7 +121,7 @@
                 color: #91b6da;
             }
 
-            i.liked{
+            i.liked {
                 color: #5895d2;
             }
         }
@@ -122,7 +129,67 @@
         .checkbox {
             display: none;
         }
-       
+
+    }
+
+    .item {
+        margin-bottom: 10%;
+        font-weight: 500;
+        font-size: 1rem;
+
+        @include media(large) {
+            padding: 4%;
+            margin-bottom: 0;
+        }
+
+        .form-container {
+            margin-top: 7%;
+
+            @include media(large) {
+                margin-top: 3%;
+            }
+
+            form {
+                padding: 8%;
+
+                @include media(large) {
+                    width: 38%;
+                    padding: 2%;
+                }
+
+                input {
+                    margin: 0 10% 0 3%;
+                    width: 10%;
+                }
+
+                button {
+                    margin-left: 10%;
+                }
+            }
+        }
+
+        &-price {
+            font-size: 1.2rem;
+        }
+
+        &-amount {
+            border: 1px solid black;
+            width: 30px;
+            height: 30px;
+            margin-right: 5%;
+        }
+
+    }
+
+}
+
+.cart-btn {
+    margin-bottom: 6%;
+    width: 12rem;
+    height: 3rem;
+
+    @include media(large) {
+        margin-bottom: 1%;
     }
 
 }

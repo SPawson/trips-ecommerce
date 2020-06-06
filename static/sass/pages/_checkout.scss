@@ -1,0 +1,11 @@
+
+#payment-form {
+
+    .form-fields {
+        @include media(medium) {
+            padding: 0% 2%;
+        }
+    }
+
+
+}

@@ -11,19 +11,15 @@ body {
 
     &-toggler {
         border: 1px solid #4a3d3d66;
-
-        // &-icon {
-            
-        // }
     }
 
     &-brand {
         font-weight: 500;
     }
 
-    a { 
+    a {
         color: #c3bbbb;
-        
+
     }
 }
 
@@ -42,7 +38,7 @@ body {
     .footer-list {
         list-style: none;
         padding-left: 0;
-        
+
         li {
 
             a {
@@ -54,26 +50,63 @@ body {
 
 /*Buttons*/
 .btn {
+
+    border-radius: 5px;
+    font-weight: 400;
+
+    a {
+        font-weight: 400;
+    }
+
     &-pale {
-        &-orange{
+
+
+        &-orange {
             background-color: #ffc49e;
             border: 1px solid #ffa367;
             color: #ffffff;
-            font-weight: 400;
 
             a {
                 color: #ffffff;
-                font-weight: 400;
+
             }
         }
+
+        &-orange:hover {
+            background-color: #f5ad7e;
+
+        }
+
+        &-pink {
+            background-color: #EF5D60;
+            border: 1px solid #EF5D60;
+            color: #ffffff;
+
+            a {
+                color: #ffffff;
+
+            }
+        }
+
+        &-pink:hover {
+            background-color: #f5ad7e;
+
+        }
+
     }
 
     &-card {
-        //color: #3c3c3c;
-        //@warn: #ffffa1;
-        //border-color: #fcfdff;
         width: 8rem;
         font-weight: 500;
+    }
+
+
+    &-btm {
+
+        &-container {
+            margin-bottom: 12%;
+        }
+
     }
 }
 
@@ -81,7 +114,20 @@ body {
 .heading {
     margin-bottom: 10%;
 
-    @include media(large){
+    @include media(large) {
         margin-bottom: 3%;
-       }
+    }
+}
+
+/*dividers*/
+
+.divider {
+    margin-top: 6%;
+    margin-bottom: 6%;
+    width: 75%;
+
+    @include media(large) {
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
 }
