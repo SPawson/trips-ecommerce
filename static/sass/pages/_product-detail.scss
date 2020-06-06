@@ -5,6 +5,10 @@
         padding: 0;
         margin-bottom: 4%;
 
+        @include media(large){
+            height: 30rem;
+           }
+
         .card-top-img {
             height: 100%;
         }
@@ -53,6 +57,12 @@
         form {
             border: 1px solid #a59b9b;
             border-radius: 20px;
+
+            @include media(large){
+                width: 40%;
+                margin-right: auto;
+                margin-left: auto;
+               }
 
             .form-control.quantity {
                 width: 14%;

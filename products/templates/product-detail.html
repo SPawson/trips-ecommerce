@@ -67,13 +67,23 @@
 
     {% if product.latitude and product.longitude %}
 
+    <div class="heading text-center">
+        <h4>Location</h4>
+    </div>
+
     <div id="location-map" style="min-height: 360px; margin-bottom: 10%;" data-lat="{{product.latitude}}"
         data-long="{{product.longitude}}">
 
     </div>
+
+    <hr class="divider">
     {% endif %}
 
     {% if comments %}
+
+    <div class="heading text-center">
+        <h4>Recent Comments</h4>
+    </div>
 
     {% for comment in comments %}
 
@@ -110,9 +120,14 @@
     {% endif %}
 
     {% if user.is_authenticated %}
+
+    <div class="heading text-center">
+        <h4>Leave a comment</h4>
+    </div>
+
     <div class="card card-create">
         <div class="card-body row">
-            <form method="POST" action="{% url 'create_comment' product.id %}" class="accountform">
+            <form method="POST" action="{% url 'create_comment' product.id %}">
                 <fieldset class="form-group">
                     
                     {% csrf_token %}
@@ -132,25 +147,7 @@
     </div>
     {% endif %}
 
-
-
 </div>
-<!-- 
-    <form id="comment-form" action="{% url 'create_comment' product.id %}" method="POST">
-        <div class="form-row">
-            <div class="form-group col-12">
-                <label for="comment-name">Name</label>
-                <input placeholder="Name" type="text" name="comment-name" id="comment-name">
-            </div>
-            <div class="form-group col-12">
-                <label for="comment-message">Message</label>
-                <input placeholder="Leave a message" type="text" name="comment-message" id="comment-message">
-            </div>
-            <div class="form-group col-12">
-                <input type="submit" value="Post">
-            </div>
-        </div>
-    </form> -->
 
 {% endblock %}
 

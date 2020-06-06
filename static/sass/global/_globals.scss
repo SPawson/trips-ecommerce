@@ -78,3 +78,10 @@ body {
 }
 
 /*Headings*/
+.heading {
+    margin-bottom: 10%;
+
+    @include media(large){
+        margin-bottom: 3%;
+       }
+}
