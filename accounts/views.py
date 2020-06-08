@@ -5,7 +5,7 @@ from django.contrib import auth, messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from checkout.models import OrderInformation, OrderLineItem
-
+from itertools import chain
 # Create your views here.
 
 def register(request):
@@ -50,8 +50,10 @@ def profile(request):
     """Allows the user to see their profile and order history"""
     user = request.user
     user_orders = get_user_orders(user)
+    line_items = get_order_lines(user)
+    print(line_items)
 
-    return render(request, 'profile.html', {'user':user, 'orders':user_orders})
+    return render(request, 'profile.html', {'user':user, 'orders':user_orders, 'line_items': line_items})
 
 
 def get_user_orders(user):
@@ -59,6 +61,16 @@ def get_user_orders(user):
 
     orders = OrderInformation.objects.filter(customer=user)
 
+
+
     return orders
+
+def get_order_lines(user):
+    """Returns a list of the users orders"""
+
+    order_lines = OrderLineItem.objects.filter(order__customer=user)
+
+    return order_lines
+
 
 #Code snippets for login taken from CI authentication lesson

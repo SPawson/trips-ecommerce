@@ -181,6 +181,18 @@
 
     }
 
+    &-order {
+        padding: 0 4% 0 4%;
+        margin-top: 8%;
+        margin-bottom: 8%;
+
+        @include media(large) {
+            width: 40%;
+            margin-top: 4%;
+            margin-bottom: 4%;
+        }
+    }
+
 }
 
 .cart-btn {
@@ -191,5 +203,5 @@
     @include media(large) {
         margin-bottom: 1%;
     }
-
+    
 }
