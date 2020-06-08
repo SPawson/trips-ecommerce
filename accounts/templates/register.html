@@ -4,15 +4,18 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <form method="POST" action="{% url 'register' %}" class="accountform">
-                <fieldset class="form-group">
-                    {% csrf_token %}
-                    {{  user_form | as_bootstrap }}
-                    <button type="submit" class="btn btn-primary">Create account</button>
-                </fieldset>
-            </form>
+        <div class="card card-login">
+            <div class="col-12">
+                <form method="POST" action="{% url 'register' %}" class="accountform">
+                    <fieldset class="form-group">
+                        {% csrf_token %}
+                        {{  user_form | as_bootstrap }}
+                        <button type="submit" class="btn btn-pale-pink">Create account</button>
+                    </fieldset>
+                </form>
+            </div>
         </div>
-        </div>
+
     </div>
+</div>
 {% endblock %}

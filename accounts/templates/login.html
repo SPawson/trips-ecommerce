@@ -4,18 +4,20 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <form method="POST" action="{% url 'login' %}" class="accountform">
-                <fieldset class="form-group">
-                    {% csrf_token %}
-                    {{  login_form | as_bootstrap }}
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </fieldset>
-            </form>
-            <p><a href="{% url 'register' %}">Don't have an account? Register</a></p>
-            <p><a href="{% url 'reset_password' %}">Forgot my password</a></p>
-        </div>
+        <div class="card card-login">
+            <div class="col-12">
+                <form method="POST" action="{% url 'login' %}" class="">
+                    <fieldset class="form-group">
+                        {% csrf_token %}
+                        {{  login_form | as_bootstrap }}
+                        <button type="submit" class="btn btn-pale-pink">Login</button>
+                    </fieldset>
+                </form>
+                <p><a href="{% url 'register' %}">Don't have an account? Register</a></p>
+                <p><a href="{% url 'reset_password' %}">Forgot my password</a></p>
+            </div>
         </div>
     </div>
+</div>
 
 {% endblock %}

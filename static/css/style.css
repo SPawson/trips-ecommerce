@@ -322,6 +322,14 @@ body {
   }
 }
 
+.card-login {
+  padding: 4%;
+}
+
+.card-login form {
+  border: none;
+}
+
 .cart-btn {
   margin-bottom: 6%;
   width: 12rem;
