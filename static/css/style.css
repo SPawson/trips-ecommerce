@@ -326,8 +326,19 @@ body {
   padding: 4%;
 }
 
+@media only screen and (min-width: 1400px) {
+  .card-login {
+    margin-top: 2%;
+    margin-bottom: 4%;
+  }
+}
+
 .card-login form {
   border: none;
+}
+
+.card-login a {
+  margin-top: 3%;
 }
 
 .cart-btn {

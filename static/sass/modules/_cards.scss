@@ -196,8 +196,17 @@
     &-login {
         padding: 4%;
 
+        @include media(large) {
+            margin-top: 2%;
+            margin-bottom: 4%;
+        }
+
         form {
             border: none;
+        }
+
+        a {
+            margin-top: 3%;
         }
     }
 
