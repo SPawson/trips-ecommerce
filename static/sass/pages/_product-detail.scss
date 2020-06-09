@@ -47,12 +47,20 @@
                 margin-left: auto;
                 margin-right: auto;
                 margin-bottom: 12%;
+
+                @include media(large){
+                    margin-bottom: 6%;
+                }
             }
         }
     }
 
     &-add{
         margin-bottom: 10%;
+
+        @include media(large){
+            margin-bottom: 6%;
+        }
 
         form {
             border: 1px solid #a59b9b;
@@ -74,6 +82,11 @@
 
     .divider {
         margin-bottom: 10%;
+
+        @include media(large){
+            margin-bottom: 3%;
+        }
+
     }
 
     .hidden {

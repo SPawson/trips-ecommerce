@@ -225,7 +225,6 @@ body {
 
 .card-head span {
   font-size: 0.9rem;
-  font-weight: 540;
 }
 
 .card-title {
@@ -257,7 +256,15 @@ body {
   border: 1px solid #a59b9b;
   border-radius: 20px;
   padding: 4%;
-  margin-top: 4%;
+  margin-top: 12%;
+  margin-bottom: 10%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .card-comment {
+    margin-top: 4%;
+    margin-bottom: 4%;
+  }
 }
 
 .card-comment .header {
@@ -282,6 +289,13 @@ body {
 
 .card-create {
   border: none !important;
+  margin-top: 10%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .card-create {
+    margin-top: 4%;
+  }
 }
 
 .card-create form {
@@ -423,8 +437,8 @@ body {
 }
 
 .pagination .page-item.active .page-link {
-  background-color: #ffc49e;
-  border: 1px solid #ffa367;
+  background-color: #7EBDC3;
+  border: 1px solid #7EBDC3;
   color: white;
 }
 
@@ -437,7 +451,7 @@ body {
 }
 
 .pagination .page-item .page-link:hover {
-  background-color: #ffdfca;
+  background-color: #cbebef;
 }
 
 /*Page imports*/
@@ -586,8 +600,20 @@ body {
   margin-bottom: 12%;
 }
 
+@media only screen and (min-width: 1400px) {
+  .product .card-description button {
+    margin-bottom: 6%;
+  }
+}
+
 .product-add {
   margin-bottom: 10%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .product-add {
+    margin-bottom: 6%;
+  }
 }
 
 .product-add form {
@@ -611,6 +637,12 @@ body {
 
 .product .divider {
   margin-bottom: 10%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .product .divider {
+    margin-bottom: 3%;
+  }
 }
 
 .product .hidden {
