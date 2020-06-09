@@ -2,21 +2,26 @@
 {% block content %}
 {% load static %}
 
-<div class="carousel-container">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="{% static 'images/carousel/forest-final.jpg' %}" class="d-block w-100 img-fluid" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{% static 'images/carousel/football-final.jpg' %}" class="d-block w-100 img-fluid" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{% static 'images/carousel/spa-final.jpg' %}" class="d-block w-100 img-fluid" alt="...">
-          </div>
-        </div>
-        </a>
-      </div>
+<div class="video-background">
+  <div class="video-wrap">
+    <div id="video">
+      <video id="bgvid" autoplay loop muted playsinline>
+        <source src="{% static 'video/cover-video.mp4' %}" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+<div class="caption text-center">
+  <h1>Welcome To Trips</h1>
+  <h5>Come See what we have to offer</h5>
+  <div class="row text-center">
+    <div class="col-12">
+      <a href="{% url 'products' %}" class="btn btn-outline-light btn-cta btn-cta--alt">Visit Store</a>
+      <a href="{% url 'products' %}" class="btn btn-outline-light btn-cta">Login</a>
+    </div>
+  </div>
+  
 </div>
 
 <div class="container">
@@ -24,7 +29,7 @@
   <div class="categories text-center">
     <div class="row header">
       <div class="col-sm-12">
-          <h3 class="category-header">What would you like to do?</h3>
+        <h3 class="category-header">What would you like to do?</h3>
       </div>
     </div>
     <div class="row">
@@ -32,8 +37,8 @@
         <div class="category sports">
           <picture class="category-image">
             <a href="{% url 'products' %}?name-or-location-contains=&category-filter=1&country=&sort-by=&datepicker=">
-            <img src="{% static 'images/sports-final.jpg' %}"alt="">
-          </a>
+              <img src="{% static 'images/sports-final.jpg' %}" alt="">
+            </a>
           </picture>
           <p class="category-text">Sports</p>
         </div>
@@ -43,8 +48,8 @@
         <div class="category relax">
           <picture class="category-image">
             <a href="{% url 'products' %}?name-or-location-contains=&category-filter=3&country=&sort-by=&datepicker=">
-            <img src="{% static 'images/relax-final.jpg' %}" alt="">
-          </a>
+              <img src="{% static 'images/relax-final.jpg' %}" alt="">
+            </a>
           </picture>
           <p class="category-text">Relax</p>
         </div>
@@ -54,9 +59,9 @@
         <div class="category outdoors">
           <picture class="category-image">
             <a href="{% url 'products' %}?name-or-location-contains=&category-filter=2&country=&sort-by=&datepicker=">
-            <img src="{% static 'images/outdoors-final.jpg' %}" alt="">
-          </a>
-            </picture>
+              <img src="{% static 'images/outdoors-final.jpg' %}" alt="">
+            </a>
+          </picture>
           </picture>
           <p class="category-text">Outdoors</p>
         </div>
@@ -75,25 +80,6 @@
     </div>
   </div>
 
-  <hr class="divider">
-
-  <div class="about text-center">
-    <div class="row">
-      <div class="col-sm-12">
-        <h4>Why Choose Us?</h4>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <p class="about-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </div>
-    </div>
-  </div>
-  
 </div>
-
-
 
 {% endblock %}

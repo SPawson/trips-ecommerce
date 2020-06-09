@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trips | Ecommerce</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Fixed css snippets taken from Drew Ryan Youtube Series-->
+    <link rel="stylesheet" href="{% static 'css/fixed.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!--Font Awesome script placed in head due to it being required in page load-->
     <script src="https://kit.fontawesome.com/771d51337c.js" crossorigin="anonymous"></script>
@@ -17,13 +19,10 @@
 <body>
 
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar navbar-trips">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-trips">
         <a class="navbar-brand" href="{% url 'index' %}">Trips</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon">
-            <svg class="bi bi-justify" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-            </svg>
           </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -47,7 +46,7 @@
                 <a class="nav-link" href="{% url 'view_cart' %}">
                     <i class="fa fa-shopping-cart"></i> Cart
                     {% if product_count > 0 %}
-                    <label class="badge badge-warning">{{ product_count}}</label>
+                    <label class="badge badge-alert">{{ product_count}}</label>
                     {% endif %}
                 </a>
               </li>
@@ -89,7 +88,12 @@
       </div>
       <div class="footer-copyright">
           <div class="container">
-              Made by <a class="brown-text text-lighten-3" target="_blank" href="https://github.com/SPawson">Sam Pawson</a>
+            <div class="row">
+              <div class="col-12">
+                Made by <a class="brown-text text-lighten-3" target="_blank" href="https://github.com/SPawson">Sam Pawson</a>
+              </div>
+            </div>
+              
           </div>
       </div>
   </footer>

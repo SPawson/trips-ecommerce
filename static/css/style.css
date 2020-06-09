@@ -1,12 +1,16 @@
 /*global*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 body {
   background-color: #ffffff;
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  color: #505962;
 }
 
 /*Navbar*/
 .navbar-trips {
-  background-color: #fdf7ff;
-  border-bottom: 1px solid #f9eef9;
+  background-color: #2d3c50;
+  border-bottom: 1px solid #2d3c50;
 }
 
 .navbar-toggler {
@@ -14,23 +18,44 @@ body {
 }
 
 .navbar-brand {
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+
+.navbar .nav-item a.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar .nav-item a.nav-link:hover {
+  color: white;
 }
 
 .navbar a {
-  color: #c3bbbb;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar .badge-alert {
+  color: #212529;
+  background-color: #ffe085;
 }
 
 /*Footer*/
 .page-footer {
   margin-top: 4%;
-  padding: 1%;
-  background-color: #fffcde;
-  border-top: 1px solid #fff4cb;
+  padding: 2%;
+  background-color: #37475d;
+  border-top: 1px solid #37475d;
+  color: #e0dddd;
+}
+
+.page-footer h5 {
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 
 .page-footer a {
-  color: #212529;
+  color: #e0dddd;
 }
 
 .page-footer .footer-list {
@@ -39,7 +64,7 @@ body {
 }
 
 .page-footer .footer-list li a {
-  color: #212529;
+  color: #e0dddd;
 }
 
 /*Buttons*/
@@ -52,32 +77,32 @@ body {
   font-weight: 400;
 }
 
-.btn-pale-orange {
-  background-color: #ffc49e;
-  border: 1px solid #ffa367;
+.btn-pale-prime {
+  background-color: #7EBDC3;
+  border: 1px solid #7EBDC3;
   color: #ffffff;
 }
 
-.btn-pale-orange a {
+.btn-pale-prime a {
   color: #ffffff;
 }
 
-.btn-pale-orange:hover {
-  background-color: #f5ad7e;
+.btn-pale-prime:hover {
+  background-color: #6bbcc3;
 }
 
-.btn-pale-pink {
-  background-color: #EF5D60;
-  border: 1px solid #EF5D60;
+.btn-pale-second {
+  background-color: #fb8881;
+  border: 1px solid #fb8881;
   color: #ffffff;
 }
 
-.btn-pale-pink a {
+.btn-pale-second a {
   color: #ffffff;
 }
 
-.btn-pale-pink:hover {
-  background-color: #f5ad7e;
+.btn-pale-second:hover {
+  background-color: #fb8881;
 }
 
 .btn-card {
@@ -87,6 +112,39 @@ body {
 
 .btn-btm-container {
   margin-bottom: 12%;
+}
+
+.btn-cta {
+  margin: 8% 2%;
+  font-weight: 700;
+  color: #7EBDC3;
+  border: 2px solid #7EBDC3;
+  width: 40%;
+}
+
+@media only screen and (min-width: 900px) {
+  .btn-cta {
+    margin: 2% 1%;
+    width: 10%;
+  }
+}
+
+.btn-cta:hover {
+  color: #fff;
+  background-color: #7EBDC3;
+  border-color: #7EBDC3;
+}
+
+.btn-cta--alt {
+  background-color: #7EBDC3;
+  border-color: #7EBDC3;
+  color: #fff;
+}
+
+.btn-cta--alt:hover {
+  background-color: transparent;
+  border-color: #7EBDC3;
+  color: #7EBDC3;
 }
 
 /*Headings*/
@@ -383,23 +441,36 @@ body {
 }
 
 /*Page imports*/
-.carousel-inner {
-  max-height: 75vh;
-}
-
-.carousel-item {
-  background-size: cover;
-  background-position: 50% 50%;
+.video-background {
+  position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-.carousel-item img {
-  height: auto;
+.caption {
+  position: absolute;
+  top: 38%;
+  width: 100%;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.caption h1 {
+  letter-spacing: 2px;
+  margin-bottom: 4%;
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 900px) {
+  .caption h1 {
+    margin-bottom: 1%;
+  }
 }
 
 .categories .header {
   margin: 6% 0;
+  text-transform: uppercase;
 }
 
 .categories .category {
@@ -408,6 +479,7 @@ body {
   margin: 5% auto;
   position: relative;
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 @media only screen and (min-width: 900px) {
@@ -416,14 +488,16 @@ body {
   }
 }
 
+.categories .category:hover {
+  background-color: rgba(48, 21, 21, 0.4);
+}
+
 .categories .category picture {
   width: 100%;
   max-height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   mix-blend-mode: multiply;
-  -webkit-filter: grayscale(0.5);
-          filter: grayscale(0.5);
 }
 
 .categories .category picture img {
@@ -442,6 +516,7 @@ body {
           transform: translate(-50%, -50%);
   z-index: 2;
   text-shadow: 2px 4px 6px black;
+  text-transform: uppercase;
 }
 
 .about h4 {
