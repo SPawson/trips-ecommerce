@@ -14,6 +14,10 @@ class TestAccountViews(TestCase):
         self.register_url = reverse('register')
         self.login_url = reverse('login')
         self.logout_url = reverse('logout')
+        self.credentials = {
+            'username':'TestUser',
+            'password': 'tester123'
+        }
         self.user = User.objects.create_user(username='TestUser', email="testuser@test.com", password="tester123")
         self.factory = RequestFactory()
     
@@ -28,14 +32,6 @@ class TestAccountViews(TestCase):
 
         self.assertEquals(response.status_code, 200)
 
-    # def test_logout_view_response(self):
-    #     request = self.factory.get(self.logout_url)
-    #     request.user = self.user
-    #     response = logout(request)
-
-    #     self.assertEquals(response.status_code, 200)
-    
-    
     #Returns correct templates tests
     def test_register_view_returns_register_template(self):
         response = self.client.get(self.register_url)
@@ -46,5 +42,11 @@ class TestAccountViews(TestCase):
         response = self.client.get(self.login_url)
 
         self.assertTemplateUsed(response, 'login.html')
+
+    #test login
+    def test_login(self):
+        response = self.client.post(self.login_url, self.credentials, follow=True )
+
+        self.assertTrue(response.context['user'].is_active)
 
 
