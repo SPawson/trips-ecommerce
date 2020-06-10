@@ -1,9 +1,21 @@
+let html = "";
+function createListItemHTML(key, value) {
+    return "<li>" +"<span>" + key + "</span>" +" - " + value + "</li>";
+}
 
+function parseErrors(jsonObj) {
 
-$(function() {
+    for (var key of Object.keys(jsonObj)) {
+        var value = jsonObj[key];
+        html += createListItemHTML(key, value[0]['message']);
+    }
+
+}
+
+$(function () {
     Stripe.setPublishableKey('pk_test_TBvGn5FZuepmOCahJChBayZ0005bGN5Vjm')
 
-    $(document).on('submit','#payment-form',function(event) {
+    $(document).on('submit', '#payment-form', function (event) {
         event.preventDefault();
         var form = this;
         var actionEndpoint = $(form).attr('action')
@@ -14,10 +26,10 @@ $(function() {
             cvc: $("#id_cvv").val()
         };
 
-        Stripe.createToken(card, function(status, response) {
-            if (status ==200){
+        Stripe.createToken(card, function (status, response) {
+            if (status == 200) {
                 $("#credit-card-errors").hide();
-                $("#id_stripe_id").val(response.id);  
+                $("#id_stripe_id").val(response.id);
 
                 $("#id_credit_card_number").removeAttr('name');
                 $("#id_cvv").removeAttr('name');
@@ -25,50 +37,44 @@ $(function() {
                 $('#id_expiry_year').removeAttr('name');
 
                 $.ajax({
-                    type:'POST',
+                    type: 'POST',
                     url: actionEndpoint,
                     data: $(form).serialize(),
-                    success:function(data){
+                    success: function (data) {
                         swal({
                             title: "Payment Successful!",
                             text: "We hope you enjoy your trip",
                             icon: "success",
                             button: "Thanks!",
-                          }).then(() => {
-                            window.location=data.url;
-                          });;
+                        }).then(() => {
+                            window.location = data.url;
+                        });;
                     },
-                    error: function(data){
-                        let message ='The billing form contains errors';
+                    error: function (data) {
+                        let message = 'The billing form contains errors';
                         let title = 'Form Error';
                         let response = data.responseJSON;
-                        let errors;
-                        console.log(data.responseText);
-                        console.log(data.responseJSON);
+                        html = "";             
 
-                        //TODO:
-                        //Render django forms validation messages
+                        parseErrors(response)
+                        document.getElementById("form-errors").innerHTML = html;
+                        document.getElementById("form-errors").scrollIntoView();
 
-                        // for (i=0; i > response.length; i++){
-                        //     errors
-                        // };
-
-                        if (data.stripe == 'error'){
+                        if (data.stripe == 'error') {
                             title = 'Error Encountered'
                             message = "Stripe encountered an issue, please try again later"
                         }
-   
+
                         console.log(data)
                         swal({
                             title: title,
                             text: message,
                             icon: "error",
                             button: "Ok",
-                          });
+                        });
                     }
                 })
-            }
-            else {
+            } else {
                 // $("#stripe-error-message").text(response.error.message);
                 // $("#credit-card-errors").show();
                 // $("#validate_card_btn").attr("disabled", false);
@@ -77,10 +83,9 @@ $(function() {
                     text: response.error.message,
                     icon: "error",
                     button: "Ok",
-                  });
+                });
             }
         });
         return false;
     });
 })
-

@@ -178,6 +178,7 @@ body {
 .heading {
     margin-top: 3%;
     margin-bottom: 10%;
+    text-transform: uppercase;
 
     @include media(large) {
         margin-bottom: 3%;
@@ -194,5 +195,20 @@ body {
     @include media(large) {
         margin-top: 3%;
         margin-bottom: 3%;
+    }
+}
+
+.error {
+    &-list {
+        list-style: none;
+        padding-left: 0;
+        li {
+            color: #ff3333;
+            margin-bottom: 2%;
+            
+            span {
+                text-transform: capitalize;
+            }
+        }
     }
 }
