@@ -30,7 +30,6 @@ def return_countries():
 def return_products(request):
     """Returns the trips (products) to the user based
      upon their filter selections"""
-   #categories = return_categories()
    
     name_or_location_contains_query = request.GET.get("name-or-location-contains")
     category_query = request.GET.get("category-filter")
