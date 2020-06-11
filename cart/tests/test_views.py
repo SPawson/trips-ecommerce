@@ -50,7 +50,6 @@ class TestCartViews(TestCase):
         
         response = self.client.post(self.add_to_cart_url,
                                 form_data)
-        cart = response.session.get('cart', {})
 
         self.assertEqual(response.status_code, 302)
 
