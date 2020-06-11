@@ -1,6 +1,7 @@
 from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 from cart.views import add_to_cart, adjust_cart, view_cart
+from django.contrib.sessions.middleware import SessionMiddleware
 
 #The following youtube tutorial was used to guide my testing process https://www.youtube.com/watch?v=hA_VxnxCHbo&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM&index=3
 
@@ -41,4 +42,25 @@ class TestCartViews(TestCase):
 
         self.assertTemplateUsed(response, 'cart-overview.html')
 
+    #Redirect tests
+    def test_add_to_cart_redirects(self):
+        form_data = {
+            "quantity": "1",
+        }
+        
+        response = self.client.post(self.add_to_cart_url,
+                                form_data)
+        cart = response.session.get('cart', {})
+
+        self.assertEqual(response.status_code, 302)
+
+    def test_adjust_cart_redirects(self):
+        form_data = {
+            "quantity": "2",
+        }
+        
+        response = self.client.post(self.adjust_cart_url,
+                                form_data)
+
+        self.assertEqual(response.status_code, 302)
 
