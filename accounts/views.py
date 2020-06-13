@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import login, authenticate
 from .forms import UserRegistrationForm, UserLoginForm
 from django.contrib import auth, messages
+from django.contrib.auth.models import User, AnonymousUser
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from checkout.models import OrderInformation, OrderLineItem
@@ -21,22 +22,28 @@ def register(request):
 
 def login(request):
     """Allows the user to login and be authenticated"""
-    if request.method == 'POST':
-        login_form = UserLoginForm(request.POST)
-        if login_form.is_valid():
-            user = authenticate(username=request.POST['username'],
-                                     password=request.POST['password'])
 
-            if user:
-                auth.login(request, user)
-                messages.error(request, "You have successfully logged in")
-                return redirect(reverse('index'))
-            else:
-                login_form.add_error(None, "Your username or password are incorrect")
+    print(request.user)
+    if request.user.is_authenticated:
+        return redirect(reverse('index'))
     else:
-        login_form = UserLoginForm()
+        if request.method == 'POST':
+            login_form = UserLoginForm(request.POST)
+            if login_form.is_valid():
+                user = authenticate(username=request.POST['username'],
+                                        password=request.POST['password'])
 
-    return render(request, 'login.html', {'login_form': login_form})
+                if user:
+                    auth.login(request, user)
+                    messages.error(request, "You have successfully logged in")
+                    return redirect(reverse('index'))
+                else:
+                    login_form.add_error(None, "Your username or password are incorrect")
+        else:
+            login_form = UserLoginForm()
+
+        return render(request, 'login.html', {'login_form': login_form})
+   
 
 @login_required
 def logout(request):

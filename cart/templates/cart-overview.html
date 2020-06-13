@@ -12,7 +12,7 @@
                     <h4 class="card-title">Checkout Overview</h4>
                 </div>
 
-
+                {% if cart_items %}
                 {% for item in cart_items %}
                 <div class="row item">
                     <div class="col-6">
@@ -51,6 +51,11 @@
                 <div class="heading text-right">
                     <h5>Total: £{{total}}</h5>
                 </div>
+                {% else %}
+                <div class="heading text-center no-items">
+                    <p>You have no items in your cart</p>
+                </div>
+                {% endif %}
                 
 
 
@@ -62,9 +67,11 @@
         <div class="col-12">
             <a href="{% url 'products' %}" class="btn btn-pale-prime cart-btn">Continue Shopping</a>
         </div>
+        {% if cart_items %}
         <div class="col-12">
             <a href="{% url 'checkout' %}" class="btn btn-pale-second cart-btn">Checkout</a>
         </div>
+        {% endif %}
     </div>
 </div>
 

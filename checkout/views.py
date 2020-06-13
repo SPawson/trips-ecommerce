@@ -17,69 +17,77 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request):
     """ Processes the cart objects and allows
-    user to purchase goods
+    user to purchase goods - if there are no objects
+    in the cart the user is redirected back to the store
     """
+    cart = request.session.get('cart', {})
+    print(cart)
 
-    if request.method == 'POST':
+    if cart != {}:
 
-        order_form = OrderForm(request.POST)
-        payment_form = MakePaymentForm(request.POST)
+        if request.method == 'POST':
 
-        if payment_form.is_valid() and order_form.is_valid():
-            print('valid form')
-            order = order_form.save(commit=False)
-            order.order_date = timezone.now()
-            print(request.user.id)
-            order.customer = request.user
-            order.save()
+            order_form = OrderForm(request.POST)
+            payment_form = MakePaymentForm(request.POST)
 
-            cart = request.session.get('cart', {})
-            total = 0
-            for id, quantity in cart.items():
-                product = get_object_or_404(Product, pk=id)
-                total += quantity * product.price
-                order_line_item = OrderLineItem(order = order,
-                product = product, 
-                quantity = quantity
-                )
-                order_line_item.save()
+            if payment_form.is_valid() and order_form.is_valid():
+                print('valid form')
+                order = order_form.save(commit=False)
+                order.order_date = timezone.now()
+                print(request.user.id)
+                order.customer = request.user
+                order.save()
 
-            print(total)
-
-            saved_order = get_object_or_404(OrderInformation, pk=order.id)
-            saved_order.order_total = total
-            saved_order.save()
-            
-            customer = None
-            
-            try:
-                print("trying payment")
-                customer = stripe.Charge.create(
-                    amount = int(total * 100), # as it is in pence
-                    currency = "gbp",
-                    description = request.user.email,
-                    card = payment_form.cleaned_data['stripe_id'],
-                )
-            except:
-                messages.error(request, "Your card was declined")
-
-            if customer.paid:
                 
-                request.session['cart'] = {}
-                response = {'url':'/'}
-                return HttpResponse(json.dumps(response), content_type='application/json')
-            else:
-                messages.error(request, "Unable to take payment at this time")
-                response = {'stripe':'error'}
-                return HttpResponseBadRequest(json.dumps(response), content_type='application/json')
+                total = 0
+                for id, quantity in cart.items():
+                    product = get_object_or_404(Product, pk=id)
+                    total += quantity * product.price
+                    order_line_item = OrderLineItem(order = order,
+                    product = product, 
+                    quantity = quantity
+                    )
+                    order_line_item.save()
 
-        elif order_form.errors:
-            #json_order = json.dumps(order_form.errors)
-            #messages.error(request, "We are unable to take a payment with that card")
-            return HttpResponseBadRequest(order_form.errors.as_json(), content_type='application/json')
-        
+                print(total)
+
+                saved_order = get_object_or_404(OrderInformation, pk=order.id)
+                saved_order.order_total = total
+                saved_order.save()
+                
+                customer = None
+                
+                try:
+                    print("trying payment")
+                    customer = stripe.Charge.create(
+                        amount = int(total * 100), # as it is in pence
+                        currency = "gbp",
+                        description = request.user.email,
+                        card = payment_form.cleaned_data['stripe_id'],
+                    )
+                except:
+                    messages.error(request, "Your card was declined")
+
+                if customer.paid:
+                    
+                    request.session['cart'] = {}
+                    response = {'url':'/'}
+                    return HttpResponse(json.dumps(response), content_type='application/json')
+                else:
+                    messages.error(request, "Unable to take payment at this time")
+                    response = {'stripe':'error'}
+                    return HttpResponseBadRequest(json.dumps(response), content_type='application/json')
+
+            elif order_form.errors:
+                #json_order = json.dumps(order_form.errors)
+                #messages.error(request, "We are unable to take a payment with that card")
+                return HttpResponseBadRequest(order_form.errors.as_json(), content_type='application/json')
+            
+        else:
+            order_form = OrderForm()
+            payment_form = MakePaymentForm()
+            
+        return render(request, 'checkout.html', {'order_form': order_form, 'payment_form': payment_form })
+    
     else:
-        order_form = OrderForm()
-        payment_form = MakePaymentForm()
-        
-    return render(request, 'checkout.html', {'order_form': order_form, 'payment_form': payment_form })
+        return redirect(reverse('products'))

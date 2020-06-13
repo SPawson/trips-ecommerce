@@ -10,6 +10,18 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"]
+        help_texts = {
+            'username': None,
+        }
+
+    def clean_username(self):
+        """Checks the username for length"""
+        username = self.cleaned_data.get('username')
+        if len(username) < 3:
+            raise forms.ValidationError(u'Username must be more than 3 characters in length.')
+        if len(username) > 40:
+            raise forms.ValidationError(u'Username must be less than 40 characters in length.')
+        return username
 
     def clean_email(self):
         """Checks email and username for uniqueness"""
@@ -18,6 +30,15 @@ class UserRegistrationForm(UserCreationForm):
         if User.objects.filter(email=email).exclude(username=username):
             raise forms.ValidationError(u'Email addresses must be unique.')
         return email
+
+    def clean_password1(self):
+        """ Validates password1 field"""
+        password1 = self.cleaned_data.get('password1')
+        if len(password1) < 8:
+            raise forms.ValidationError(u'Password is too short, it must be at least 8 characters.')
+        if password1.isdigit():
+            raise forms.ValidationError(u'Password cannot contain only numbers.')
+        return password1
 
     def clean_password2(self):
         """ Validates password fields"""

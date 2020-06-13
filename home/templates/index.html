@@ -18,7 +18,9 @@
   <div class="row text-center">
     <div class="col-12">
       <a href="{% url 'products' %}" class="btn btn-outline-light btn-cta btn-cta--alt">Visit Store</a>
-      <a href="{% url 'products' %}" class="btn btn-outline-light btn-cta">Login</a>
+      {% if not user.is_authenticated %}
+      <a href="{% url 'login' %}" class="btn btn-outline-light btn-cta">Login</a>
+      {% endif %}
     </div>
   </div>
   

@@ -160,6 +160,18 @@ body {
   }
 }
 
+.heading.no-items {
+  margin-top: 16%;
+  margin-bottom: 16%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .heading.no-items {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+}
+
 /*dividers*/
 .divider {
   margin-top: 6%;
@@ -174,6 +186,7 @@ body {
   }
 }
 
+/*errors*/
 .error-list {
   list-style: none;
   padding-left: 0;
@@ -188,6 +201,11 @@ body {
   text-transform: capitalize;
 }
 
+form span.error-msg {
+  color: #ff3333;
+}
+
+/*No items*/
 /*Module Imports*/
 .card {
   margin: 10% auto;
@@ -290,6 +308,10 @@ body {
   color: #5895d2;
   margin-top: 5%;
   margin-left: 5%;
+}
+
+.card-comment .like-btn {
+  margin: 1% 0 1% 1%;
 }
 
 .card form {
@@ -466,7 +488,7 @@ body {
 }
 
 .pagination .page-item .page-link {
-  color: black;
+  color: #505962;
 }
 
 .pagination .page-item .page-link:hover {
@@ -487,12 +509,14 @@ body {
   width: 100%;
   color: #ffffff;
   text-transform: uppercase;
+  text-shadow: .1rem .1rem .5rem black;
 }
 
 .caption h1 {
   letter-spacing: 2px;
   margin-bottom: 4%;
   font-weight: 700;
+  text-shadow: .1rem .1rem .8rem black;
 }
 
 @media only screen and (min-width: 900px) {

@@ -16,11 +16,13 @@
     width: 100%;
     color: #ffffff;
     text-transform: uppercase;
+    text-shadow: .1rem .1rem .5rem black ;
 
     h1 {
         letter-spacing: 2px;
         margin-bottom: 4%;
         font-weight: 700;
+        text-shadow: .1rem .1rem .8rem black ;
 
         @include media(medium) {
             margin-bottom: 1%;

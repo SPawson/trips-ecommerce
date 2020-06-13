@@ -183,6 +183,16 @@ body {
     @include media(large) {
         margin-bottom: 3%;
     }
+
+    &.no-items {
+        margin-top: 16%;
+        margin-bottom: 16%;
+
+        @include media(large) {
+            margin-top: 10%;
+            margin-bottom: 10%;
+        }
+    }
 }
 
 /*dividers*/
@@ -196,8 +206,11 @@ body {
         margin-top: 3%;
         margin-bottom: 3%;
     }
+
+  
 }
 
+/*errors*/
 .error {
     &-list {
         list-style: none;
@@ -212,3 +225,12 @@ body {
         }
     }
 }
+
+form {
+    span.error-msg {
+        color: #ff3333;
+    }
+}
+
+/*No items*/
+

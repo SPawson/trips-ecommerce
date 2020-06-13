@@ -93,13 +93,13 @@
                 {{comment.user_id.username}}
             </div>
 
-            <div class="col-6">
+            <div class="col-6 text-right">
                 {{comment.post_date}}
             </div>
 
             {% if comment.like %}
-            <div class="col-6">
-                Liked <i class="fas fa-thumbs-up blue"></i>
+            <div class="col-12">
+                Liked <i class="fas fa-thumbs-up like-btn blue"></i>
             </div>
             {% endif %}
         </div>
