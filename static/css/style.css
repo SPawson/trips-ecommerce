@@ -498,8 +498,8 @@ form span.error-msg {
 
 @media only screen and (min-width: 1400px) {
   .card-login {
-    margin-top: 2%;
-    margin-bottom: 4%;
+    margin-top: 8%;
+    margin-bottom: 8%;
   }
 }
 
@@ -518,8 +518,8 @@ form span.error-msg {
 
 @media only screen and (min-width: 1400px) {
   .card-reset {
-    margin-top: 7%;
-    margin-bottom: 5%;
+    margin-top: 8%;
+    margin-bottom: 8%;
   }
 }
 
