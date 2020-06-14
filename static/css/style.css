@@ -106,8 +106,14 @@ body {
 }
 
 .btn-card {
-  width: 8rem;
+  width: 100%;
   font-weight: 500;
+}
+
+@media only screen and (min-width: 600px) {
+  .btn-card {
+    width: 8rem;
+  }
 }
 
 .btn-btm-container {
@@ -161,14 +167,14 @@ body {
 }
 
 .heading.no-items {
-  margin-top: 16%;
-  margin-bottom: 16%;
+  margin-top: 50%;
+  margin-bottom: 50%;
 }
 
 @media only screen and (min-width: 1400px) {
   .heading.no-items {
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 14%;
+    margin-bottom: 14%;
   }
 }
 
@@ -205,11 +211,16 @@ form span.error-msg {
   color: #ff3333;
 }
 
-/*No items*/
 /*Module Imports*/
 .card {
   margin: 10% auto;
-  width: 20rem;
+  width: 100%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .card {
+    width: 20rem;
+  }
 }
 
 @media only screen and (min-width: 900px) {
@@ -275,8 +286,15 @@ form span.error-msg {
 }
 
 .card-price {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 500;
+  padding-left: 1%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .card-price {
+    font-size: 1.3rem;
+  }
 }
 
 @media only screen and (min-width: 1400px) {
@@ -411,7 +429,7 @@ form span.error-msg {
 }
 
 .card .item-amount {
-  border: 1px solid black;
+  border: 1px solid #a59b9b;
   width: 30px;
   height: 30px;
   margin-right: 5%;
@@ -451,6 +469,26 @@ form span.error-msg {
 }
 
 .card-login a {
+  margin-top: 3%;
+}
+
+.card-reset {
+  padding: 4%;
+  margin: 25% auto;
+}
+
+@media only screen and (min-width: 1400px) {
+  .card-reset {
+    margin-top: 7%;
+    margin-bottom: 5%;
+  }
+}
+
+.card-reset form {
+  border: none;
+}
+
+.card-reset a {
   margin-top: 3%;
 }
 
@@ -596,6 +634,27 @@ form span.error-msg {
 
 .filters #cat-form .form-group label {
   font-weight: 500;
+}
+
+.filters-container {
+  display: none;
+}
+
+@media only screen and (min-width: 1400px) {
+  .filters-container {
+    display: initial;
+  }
+}
+
+#show-filters {
+  margin: 6% auto 4%;
+  width: auto;
+}
+
+@media only screen and (min-width: 1400px) {
+  #show-filters {
+    display: none;
+  }
 }
 
 .product .image-container {

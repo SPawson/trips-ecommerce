@@ -10,53 +10,60 @@
 
 <div class="container">
 
-    <div class="row filters">
-        <form action="{% url 'products' %}" method="GET">
-            <div id="cat-form" class="form-row">
-                <div class="form-group col-12">
-                    <label for="name-or-location-contains">Search</label>
-                    <input placeholder="Name or Location" class="form-control" type="search"
-                        name="name-or-location-contains" id="name-or-location-contains">
-                </div>
-                <div class="form-group col-sm-12 col-md-6">
-                    <label for="category-filter">Category</label>
-                    <select class="form-control" placeholder="Category" name="category-filter" id="category-filter">
-                        <option value="" selected>Categories..</option>
-                        {% for category in categories %}
-                        <option value="{{ category.id }}">{{ category.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="form-group col-sm-12 col-md-6">
-                    <label for="name-or-location-contains">Country</label>
-                    <select class="form-control" placeholder="Country" name="country" id="country">
-                        <option value="" selected>Country</option>
-                        {% for country in countries %}
-                        <option value="{{country.id}}">{{country.name}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="form-group col-sm-12 col-md-6">
-                    <label for="name-or-location-contains">Sort By</label>
-                    <select class="form-control" placeholder="Sort By" name="sort-by" id="sort-by">
-                        <option value="" selected>Sort By</option>
-                        <option value="price-low">Price: Lowest</option>
-                        <option value="price-high">Price: Highest</option>
-                    </select>
-                </div>
-                <div class="dates form-group col-sm-12 col-md-6">
-                    <label for="name-or-location-contains">Date</label>
-                    <input type="text" name="datepicker" id="datepicker" autocomplete="off" placeholder="Choose a date"
-                        class="form-control">
-                </div>
+    <div class="row filters" >
 
-                <div class="form-group col-sm-12">
-                    <input type="submit" value="Search" class="btn btn-pale-prime">
-                    <button type="button" class="btn btn-pale-prime"><a href="{% url 'products' %}">Reset</a></button>
+        <div id="filters" class="filters-container">
+            <form action="{% url 'products' %}" method="GET" >
+                <div id="cat-form" class="form-row">
+                    <div class="form-group col-12">
+                        <label for="name-or-location-contains">Search</label>
+                        <input placeholder="Name or Location" class="form-control" type="search"
+                            name="name-or-location-contains" id="name-or-location-contains">
+                    </div>
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="category-filter">Category</label>
+                        <select class="form-control" placeholder="Category" name="category-filter" id="category-filter">
+                            <option value="" selected>Categories..</option>
+                            {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="name-or-location-contains">Country</label>
+                        <select class="form-control" placeholder="Country" name="country" id="country">
+                            <option value="" selected>Country</option>
+                            {% for country in countries %}
+                            <option value="{{country.id}}">{{country.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="name-or-location-contains">Sort By</label>
+                        <select class="form-control" placeholder="Sort By" name="sort-by" id="sort-by">
+                            <option value="" selected>Sort By</option>
+                            <option value="price-low">Price: Lowest</option>
+                            <option value="price-high">Price: Highest</option>
+                        </select>
+                    </div>
+                    <div class="dates form-group col-sm-12 col-md-6">
+                        <label for="name-or-location-contains">Date</label>
+                        <input type="text" name="datepicker" id="datepicker" autocomplete="off" placeholder="Choose a date"
+                            class="form-control">
+                    </div>
+    
+                    <div class="form-group col-sm-12">
+                        <input type="submit" value="Search" class="btn btn-pale-prime">
+                        <button type="button" class="btn btn-pale-prime"><a href="{% url 'products' %}">Reset</a></button>
+                    </div>
                 </div>
-            </div>
+    
+            </form>
+        </div>
 
-        </form>
+        <div class="filters-btn text-center col-12">
+            <button id="show-filters" class="btn btn-outline-light btn-cta">Show Filters <i class="fas fa-sort"></i></button>
+        </div>
     </div>
 
     <hr>
@@ -88,7 +95,7 @@
                         <div class="col-6">
                             <a href="{% url 'product_detail' item.id %}" class="btn btn-pale-prime btn-card">View</a>
                         </div>
-                        <div class="col-6 card-right">
+                        <div class="col-6 card-right text-right">
                             <span class="card-price">£{{item.price}} pp</span> 
                         </div>
                     </div>
@@ -97,9 +104,11 @@
             </div>
             {% endfor %}
 
-            {% include "product-pagination.html" %}
 
         </div>
+    </div>
+    <div class="row">
+            {% include "product-pagination.html" %}
     </div>
 </div>
 

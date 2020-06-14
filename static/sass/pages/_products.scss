@@ -15,5 +15,24 @@
             }
         }
     }
+
+    &-container {
+        display: none;
+
+        @include media(large) {
+            display: initial;
+        }
+    }
     
+
 }
+
+#show-filters {
+    margin: 6% auto 4%;
+    width: auto;
+
+    @include media(large) {
+        display: none;
+    }
+}
+

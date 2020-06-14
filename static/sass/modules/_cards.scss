@@ -1,6 +1,10 @@
 .card {
     margin: 10% auto;
-    width: 20rem;
+    width: 100%;
+
+    @include media(large) {
+        width: 20rem;
+    }
 
     &--cart {
         @include media(medium) {
@@ -60,8 +64,13 @@
     }
 
     &-price {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 500;
+        padding-left: 1%;
+
+        @include media(large) {
+            font-size: 1.3rem;
+        }
     }
 
     &-right {
@@ -187,7 +196,7 @@
         }
 
         &-amount {
-            border: 1px solid black;
+            border: 1px solid #a59b9b;
             width: 30px;
             height: 30px;
             margin-right: 5%;
@@ -217,6 +226,24 @@
         @include media(large) {
             margin-top: 2%;
             margin-bottom: 4%;
+        }
+
+        form {
+            border: none;
+        }
+
+        a {
+            margin-top: 3%;
+        }
+    }
+
+    &-reset {
+        padding: 4%;
+        margin: 25% auto;
+
+        @include media(large) {
+            margin-top: 7%;
+            margin-bottom: 5%;
         }
 
         form {

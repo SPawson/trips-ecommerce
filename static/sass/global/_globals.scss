@@ -127,8 +127,12 @@ body {
     }
 
     &-card {
-        width: 8rem;
+        width: 100%;
         font-weight: 500;
+
+        @include media(small) {
+            width: 8rem;
+        }
     }
 
 
@@ -185,12 +189,12 @@ body {
     }
 
     &.no-items {
-        margin-top: 16%;
-        margin-bottom: 16%;
+        margin-top: 50%;
+        margin-bottom: 50%;
 
         @include media(large) {
-            margin-top: 10%;
-            margin-bottom: 10%;
+            margin-top: 14%;
+            margin-bottom: 14%;
         }
     }
 }
@@ -231,6 +235,3 @@ form {
         color: #ff3333;
     }
 }
-
-/*No items*/
-
