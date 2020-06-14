@@ -88,7 +88,14 @@ body {
 }
 
 .btn-pale-prime:hover {
-  background-color: #6bbcc3;
+  background-color: #5aadb5;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btn-pale-prime:hover a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .btn-pale-second {
@@ -102,7 +109,12 @@ body {
 }
 
 .btn-pale-second:hover {
-  background-color: #fb8881;
+  background-color: #dc736d;
+  color: #ffffff;
+}
+
+.btn-pale-second:hover a {
+  color: #ffffff;
 }
 
 .btn-card {
@@ -271,6 +283,16 @@ form span.error-msg {
   font-size: 0.9rem;
 }
 
+.card-head--detail {
+  margin-top: 5%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .card-head--detail {
+    margin-top: 1%;
+  }
+}
+
 .card-title {
   margin-bottom: 1%;
 }
@@ -295,6 +317,13 @@ form span.error-msg {
   .card-price {
     font-size: 1.3rem;
   }
+}
+
+.card-price.detail {
+  font-weight: 700;
+  font-size: 1.3rem !important;
+  margin-top: 3%;
+  padding-left: 0;
 }
 
 @media only screen and (min-width: 1400px) {
@@ -389,7 +418,7 @@ form span.error-msg {
 
 @media only screen and (min-width: 1400px) {
   .card .item {
-    padding: 4%;
+    padding: 4% 0;
     margin-bottom: 0;
   }
 }
@@ -433,6 +462,16 @@ form span.error-msg {
   width: 30px;
   height: 30px;
   margin-right: 5%;
+}
+
+.card .item-amount-container {
+  padding-left: 0;
+}
+
+@media only screen and (min-width: 1400px) {
+  .card .item-amount-container {
+    padding-left: 0;
+  }
 }
 
 .card .item .qty {

@@ -1,10 +1,3 @@
-$(document).on('load', function () {
-
-
-
-
-})
-
 $("#show-filters").click(function () {
     let icon = '  <i class="fas fa-sort"></i>'
     $("#filters").toggle();

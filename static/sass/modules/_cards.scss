@@ -46,6 +46,15 @@
         span {
             font-size: 0.9rem;
         }
+
+        &--detail {
+
+            margin-top: 5%;
+
+            @include media(large) {
+                margin-top: 1%;
+            }
+        }
     }
 
     &-title {
@@ -70,6 +79,13 @@
 
         @include media(large) {
             font-size: 1.3rem;
+        }
+
+        &.detail {
+            font-weight: 700;
+            font-size: 1.3rem !important;
+            margin-top: 3%;
+            padding-left: 0;
         }
     }
 
@@ -161,7 +177,7 @@
         font-size: 1rem;
 
         @include media(large) {
-            padding: 4%;
+            padding: 4% 0;
             margin-bottom: 0;
         }
 
@@ -200,6 +216,14 @@
             width: 30px;
             height: 30px;
             margin-right: 5%;
+
+            &-container {
+                padding-left: 0;
+
+                @include media(large) {
+                    padding-left: 0;
+                }
+            }
         }
 
         .qty {

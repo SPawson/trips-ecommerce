@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from checkout.models import OrderInformation, OrderLineItem
 from itertools import chain
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
 def register(request):
@@ -60,7 +61,23 @@ def profile(request):
     line_items = get_order_lines(user)
     print(line_items)
 
-    return render(request, 'profile.html', {'user':user, 'orders':user_orders, 'line_items': line_items})
+    paginator = Paginator(user_orders, 3)
+    page = request.GET.get('page')
+
+    try:
+        order_items = paginator.page(page)
+    except PageNotAnInteger:
+        order_items = paginator.page(1)
+    except EmptyPage:
+        order_items = paginator.page(paginator.num_pages)
+
+    index = order_items.number -1
+    max_index = len(paginator.page_range)
+    start_index = index -5 if index >= 5 else 0
+    end_index = index +5 if index <= max_index - 5 else max_index
+    page_range = paginator.page_range[start_index:end_index]
+
+    return render(request, 'profile.html', {'user':user, 'orders':order_items, 'line_items': line_items, 'page_range': page_range})
 
 
 def get_user_orders(user):

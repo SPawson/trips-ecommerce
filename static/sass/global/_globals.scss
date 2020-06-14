@@ -104,7 +104,15 @@ body {
         }
 
         &-prime:hover {
-            background-color: #6bbcc3;
+            background-color: #5aadb5;
+            color: #ffffff;
+            text-decoration: none;
+
+            a {
+                color: #ffffff;
+                text-decoration: none;
+
+            }
 
         }
 
@@ -120,7 +128,14 @@ body {
         }
 
         &-second:hover {
-            background-color: #fb8881;
+            background-color: #dc736d;
+
+            color: #ffffff;
+
+            a {
+                color: #ffffff;
+
+            }
 
         }
 
