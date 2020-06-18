@@ -21,10 +21,11 @@
 | Cart Views| testing the cart view to ensure that functions return the correct templates and that adding an item to the cart redirects the user to the cart overview page. | tests/test_views.py|
 | Checkout Urls | testing checkout url to ensure that its calls the correct view function| tests/test_urls.py|
 | Checkout Views| testing the checkout views various functions such as checking authenticated access to the page and also that the ajax request returns a bad response if incorrect data is entered | tests/test_views.py|
-| Checkout Forms|| testing the checkout forms to ensure that both the billing and payment forms validate the information entered correctly and will not let bad data be entered.| tests/test_forms.py|
+| Checkout Forms| testing the checkout forms to ensure that both the billing and payment forms validate the information entered correctly and will not let bad data be entered.| tests/test_forms.py|
 
 
 <hr>
+
 ## Client Stories
 <p>This section will demonstrate the way in which I have been able to meet the various aspects of my client stories.</p>
 
@@ -46,15 +47,18 @@
 <li>The product listing page contains a number of filters which can be adjusted in order for the user to find a trip they feel is “interesting ” and appeals to them. The user can change the filters at any time and are also able to select multiple filters at the same time.  </li>
 <li>The product listing page shows the available products based on the users selection choices. The page features pagination, so that the user does not need to scroll endlessly in order to see all of the available trips</li>
 </ol>
+
 #### Product detail
 <ol>
 <li>The product detail page provides the user with all of the relevant information regarding the trip they have chosen. This includes information on the price, description , location and other users opinions. </li>
 <li>The product detail page features the ability to add the product to the users cart. This enables them to purchase this item if they are wanting too.</li>
 </ol>
+
 #### Cart
 <ol>
 <li>The cart system features an overview page, which allows the user to see an overview of all the items the user has selected and is interested in. The checkout section can be accessed through this page.</li>
 </ol>
+
 #### Checkout
 <ol>
 <li>The checkout page allows the user to enter their payment details and actually purchase the product they have selected.</li>
@@ -65,6 +69,7 @@
 <ol>
 <li>As mentioned previously, the homepage features 4 call to action buttons which allow the user to prefilter the products before they arrive on the store page. This only covers the category filter, however this helps to narrow in on the users requests before they have even got to the store page. </li>
 </ol>
+
 #### Product Listing
 <ol>
 <li>The product listing page contains a number of filters which can be adjusted in order for the user to find a trip they feel is “interesting ” and appeals to them. The user can change the filters at any time and are also able to select multiple filters at the same time.  </li>
@@ -80,6 +85,7 @@
 <ol>
 <li>The product cards featured on the listing page show the area and country in which the trip is located. This can also be filtered by the user so that they can see trips which are only available in the area they are interested in. </li>
 </ol>
+
 #### Product Detail
 <ol>
 <li>The product detail page contains a more in depth look at the trip itself. One part of this is the google maps integration which shows the user the precise location of the trip. The maps element allows the user to use all of the expected features of google maps so that they can get all of the information they need. </li>
@@ -115,6 +121,7 @@
 </ol>
 
 <hr>
+
 ## Manual Testing
 <p>Alongside my unit tests, I also carried out manual testing of my site. I ensured I spent time doing this as there are certain elements that unit tests may miss such as style issues and other such bugs. </p>
 <p>To carry out my manual testing I followed my user stories and made sure that the user was able to successfully perform each of the user stories successfully. Through doing this I was able to find a number of bugs which could have prevented the user from being able to successfully complete the story.  </p>

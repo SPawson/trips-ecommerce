@@ -14,7 +14,6 @@
 <p>Please see the Stripe Documentation for more information <a target="_blank" href="https://stripe.com/docs/testing”> https://stripe.com/docs/testing</a></ </p>
 
 </hr>
-<br>
 
 # UX
 
@@ -26,8 +25,8 @@
 
 ## Wireframes
 <p> During the development stage of my project I generated some wireframes for both the mobile and desktop approaches using Balsamiq. Throughout the course of developing the website, I have deviated from the wireframes in certain sections. This is mainly due to me discovering a better design during the development, or issues with implementing the feature. </p>
-
 <p>The wireframes have been uploaded with the rest of my project and can be viewed <a target="_blank" href="documents/wireframes">here.</a></p>
+
 
 ## User Stories
 <p>In the development stage of the project, I generated a number of user stories which heavily influenced the design decisions taken throughout the development of the application. They are as follows:</p>
@@ -70,12 +69,13 @@
 ### Feature 8 – Checkout
 <p>The site contains a fully functional checkout system which allows the user to purchase products that they have found on the site. The payment process is handled by the Stripe API, which provides industry standard security and protection for the user. </p>
 
-Feature 9 – Profile (Order History)
+### Feature 9 – Profile (Order History)
 <p>The site contains a profile section which allows users to track the orders placed by the user. This creates a convenient place for users to review what they have bought and also allows them to gather all the necessary information they may need about their booking. </p>
 
 ## Features left to implement
 
 <p>The following features are things I would like to include in the future. Currently a limit in time or lack of understanding has prevented me from implementing these features in the current build. However, I will look to add these going forward. </p>
+
 ### Feature 1 – Refund/Cancellation System
 <p>One feature I would like to add to the application in the future would be the ability for the site to process refund/return requests from the users. This would greatly increase the user experience as the convenience of being able to request a cancellation or refund on the site will be very valuable, as it will save them time and stress.</p>
 
@@ -152,7 +152,7 @@ Feature 9 – Profile (Order History)
 <hr>
 
 ## Testing
-<p>All testing that I have completed in regards to the user story can be viewed on a separate document <a target="_blank" href="documents/testing/testing.md">here</a></p>
+<p>All testing that I have completed in regards to the user story can be viewed on a separate document <a target="_blank" href="/documents/testing/Testing.md">here</a></p>
 
 <h3>Issues Encountered</h3>
 <p>Throughout the course of my testing, I discovered a few bugs which I have detailed below:</p>
@@ -167,7 +167,7 @@ Feature 9 – Profile (Order History)
 <p>I have deployed this project using Heroku and this can be found here: <a target="_blank" href="https://trips-ecommerce.herokuapp.com/">https://trips-ecommerce.herokuapp.com/</a></p>
 <p>In order to run Trips locally the following steps can be taken:</p>
 
-1. To download or clone the site to your local machine you will need to go to my [repo]( https://github.com/SPawson/trips-ecommerce) see steps in https://help.github.com/en/articles/cloning-a-repository .
+1. To download or clone the site to your local machine you will need to go to my [repo]( https://github.com/SPawson/trips-ecommerce) and see the steps in https://help.github.com/en/articles/cloning-a-repository in order to clone my project.
 2.  Before you download or clone the site you will need to ensure you have [Python 3.7](https://www.python.org/downloads/) installed. 
 3. Once you have Python installed, create a virtual environment as appropriate to you chosen IDE and os. I recommend using [Microsoft visual code] (https://code.visualstudio.com/)
 4. In order to install all  of the dependencies required to run the project, you can do this via the requirements.txt file using the *****pip _install_ -r _requirements_.txt***** command once you have activated your virtual environment. This should install all of the packages listed in the file.
