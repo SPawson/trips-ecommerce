@@ -1,5 +1,5 @@
 language: python
 python: 
     - 3.7
-install: "pip install -r requirements.txt && python manage.py makemigrations products -v 2 && python manage.py makemigrations checkout -v 2"
+install: " SECRET_KEY="whateveritmaybe" pip install -r requirements.txt && python manage.py makemigrations products -v 2 && python manage.py makemigrations checkout -v 2"
 script: SECRET_KEY="whateveritmaybe" python manage.py test
