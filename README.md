@@ -11,11 +11,10 @@
 
 <p>This site has been created purely for educational purposes and does not provide any service/products to the user. Please do not enter any personal information. In order to use the Ecommerce functionality, please use stripes test card in order to make payments</p>
 <p>Test Card Number: 4242 4242 4242 4242</p>
-<p>Please see the Stripe Documentation for more information <a target="_blank" href="https://stripe.com/docs/testing”> https://stripe.com/docs/testing</a></ </p>
+<p>Please see the Stripe Documentation for more information <a target="_blank" href="https://stripe.com/docs/testing">https://stripe.com/docs/testing.</a> </p>
+
 
 </hr>
-
-# UX
 
 ## Overview
 
