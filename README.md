@@ -1,5 +1,5 @@
 
-
+[![Build Status](https://travis-ci.org/SPawson/trips-ecommerce.svg?branch=master)](https://travis-ci.org/SPawson/trips-ecommerce)
 <h1>Trips | Code Institute Fourth Milestone Project</h1>
 
 <p>This project has been completed as part of my submission for my fourth milestone stone project as part of my Code Institute Full stack software development course. The website is intended to replicate the look and functionality of other popular holiday and trip booking ecommerce sites. </p>
