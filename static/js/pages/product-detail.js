@@ -45,7 +45,7 @@ function initMap() {
 
 readMore.addEventListener("click", function(){
 
-    let state = readMore.dataset.state
+    let state = readMore.dataset.state;
 
     if (state == "more") {
         snippet.classList.add("hidden");
@@ -61,11 +61,11 @@ readMore.addEventListener("click", function(){
         readMore.setAttribute("data-state", "more");
     }
 
-})
+});
 
 likeBtn.addEventListener("click", function(){
  
-    let state = likeBtn.dataset.state
+    let state = likeBtn.dataset.state;
 
     if (state == "unliked") {
         likeBtn.classList.add("liked");
@@ -77,6 +77,6 @@ likeBtn.addEventListener("click", function(){
         likeBtn.setAttribute("data-state", "unliked");
         likeInput.checked = false;
     }
-})
+});
 
 

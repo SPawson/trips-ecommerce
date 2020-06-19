@@ -13,12 +13,12 @@ function parseErrors(jsonObj) {
 }
 
 $(function () {
-    Stripe.setPublishableKey('pk_test_TBvGn5FZuepmOCahJChBayZ0005bGN5Vjm')
+    Stripe.setPublishableKey('pk_test_TBvGn5FZuepmOCahJChBayZ0005bGN5Vjm');
 
     $(document).on('submit', '#payment-form', function (event) {
         event.preventDefault();
         var form = this;
-        var actionEndpoint = $(form).attr('action')
+        var actionEndpoint = $(form).attr('action');
         var card = {
             number: $("#id_credit_card_number").val(),
             expMonth: $("#id_expiry_month").val(),
@@ -48,7 +48,7 @@ $(function () {
                             button: "Thanks!",
                         }).then(() => {
                             window.location = data.url;
-                        });;
+                        });
                     },
                     error: function (data) {
                         let message = 'The billing form contains errors';
@@ -56,16 +56,15 @@ $(function () {
                         let response = data.responseJSON;
                         html = "";             
 
-                        parseErrors(response)
+                        parseErrors(response);
                         document.getElementById("form-errors").innerHTML = html;
                         document.getElementById("form-errors").scrollIntoView();
 
                         if (data.stripe == 'error') {
-                            title = 'Error Encountered'
-                            message = "Stripe encountered an issue, please try again later"
+                            title = 'Error Encountered';
+                            message = "Stripe encountered an issue, please try again later";
                         }
 
-                        console.log(data)
                         swal({
                             title: title,
                             text: message,
@@ -73,7 +72,7 @@ $(function () {
                             button: "Ok",
                         });
                     }
-                })
+                });
             } else {
                 // $("#stripe-error-message").text(response.error.message);
                 // $("#credit-card-errors").show();
@@ -88,4 +87,4 @@ $(function () {
         });
         return false;
     });
-})
+});

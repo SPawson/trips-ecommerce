@@ -22,8 +22,8 @@
                     </div>
                     <div class="form-group col-sm-12 col-md-6">
                         <label for="category-filter">Category</label>
-                        <select class="form-control" placeholder="Category" name="category-filter" id="category-filter">
-                            <option value="" selected>Categories..</option>
+                        <select class="form-control" name="category-filter" id="category-filter">
+                            <option disabled value="" selected>Categories..</option>
                             {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.name }}</option>
                             {% endfor %}
@@ -31,8 +31,8 @@
                     </div>
                     <div class="form-group col-sm-12 col-md-6">
                         <label for="name-or-location-contains">Country</label>
-                        <select class="form-control" placeholder="Country" name="country" id="country">
-                            <option value="" selected>Country</option>
+                        <select class="form-control" name="country" id="country">
+                            <option value="" disabled selected>Country</option>
                             {% for country in countries %}
                             <option value="{{country.id}}">{{country.name}}</option>
                             {% endfor %}
@@ -40,8 +40,8 @@
                     </div>
                     <div class="form-group col-sm-12 col-md-6">
                         <label for="name-or-location-contains">Sort By</label>
-                        <select class="form-control" placeholder="Sort By" name="sort-by" id="sort-by">
-                            <option value="" selected>Sort By</option>
+                        <select class="form-control" name="sort-by" id="sort-by">
+                            <option value="" disabled selected>Sort By</option>
                             <option value="price-low">Price: Lowest</option>
                             <option value="price-high">Price: Highest</option>
                         </select>
@@ -54,7 +54,7 @@
     
                     <div class="form-group col-sm-12">
                         <input type="submit" value="Search" class="btn btn-pale-prime">
-                        <button type="button" class="btn btn-pale-prime"><a href="{% url 'products' %}">Reset</a></button>
+                        <a class="btn btn-pale-prime" href="{% url 'products' %}">Reset</a>
                     </div>
                 </div>
     

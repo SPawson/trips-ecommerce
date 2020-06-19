@@ -1,5 +1,5 @@
 $("#show-filters").click(function () {
-    let icon = '  <i class="fas fa-sort"></i>'
+    let icon = '  <i class="fas fa-sort"></i>';
     $("#filters").toggle();
 
     if ($("#filters").is(":visible")){
