@@ -83,7 +83,7 @@ body {
 .btn {
 
     border-radius: 5px;
-    font-weight: 400;
+    font-weight: 700;
 
     a {
         font-weight: 400;
@@ -117,8 +117,8 @@ body {
         }
 
         &-second {
-            background-color: #fb8881;
-            border: 1px solid #fb8881;
+            background-color: #47a551;
+            border: 1px solid #47a551;
             color: #ffffff;
 
             a {
@@ -128,7 +128,7 @@ body {
         }
 
         &-second:hover {
-            background-color: #dc736d;
+            background-color: #47a551;
 
             color: #ffffff;
 
@@ -166,9 +166,14 @@ body {
         border: 2px solid #7EBDC3;
         width: 40%;
 
+        @include media(small) {
+            margin: 2% 1%;
+            width: 26%;
+        }
+
         @include media(medium) {
             margin: 2% 1%;
-            width: 10%;
+            width: 15%;
         }
 
         &:hover{
@@ -249,4 +254,11 @@ form {
     span.error-msg {
         color: #ff3333;
     }
+}
+
+.full-field {
+    input {
+        width: 100% !important;
+    }
+    
 }

@@ -70,7 +70,7 @@ body {
 /*Buttons*/
 .btn {
   border-radius: 5px;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .btn a {
@@ -99,8 +99,8 @@ body {
 }
 
 .btn-pale-second {
-  background-color: #fb8881;
-  border: 1px solid #fb8881;
+  background-color: #47a551;
+  border: 1px solid #47a551;
   color: #ffffff;
 }
 
@@ -109,7 +109,7 @@ body {
 }
 
 .btn-pale-second:hover {
-  background-color: #dc736d;
+  background-color: #47a551;
   color: #ffffff;
 }
 
@@ -140,10 +140,17 @@ body {
   width: 40%;
 }
 
+@media only screen and (min-width: 600px) {
+  .btn-cta {
+    margin: 2% 1%;
+    width: 26%;
+  }
+}
+
 @media only screen and (min-width: 900px) {
   .btn-cta {
     margin: 2% 1%;
-    width: 10%;
+    width: 15%;
   }
 }
 
@@ -221,6 +228,10 @@ body {
 
 form span.error-msg {
   color: #ff3333;
+}
+
+.full-field input {
+  width: 100% !important;
 }
 
 /*Module Imports*/
@@ -338,6 +349,14 @@ form span.error-msg {
   padding: 4%;
   margin-top: 12%;
   margin-bottom: 10%;
+}
+
+@media only screen and (min-width: 600px) {
+  .card-comment {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    width: 70%;
+  }
 }
 
 @media only screen and (min-width: 1400px) {
