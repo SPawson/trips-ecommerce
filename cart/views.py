@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-#Code snippets taken from the Code Institute 'Ecommerce Lessons'
+# Code snippets taken from the Code Institute 'Ecommerce Lessons'
+
 
 def add_to_cart(request, id):
     """Allows products to be added to the cart"""
@@ -30,7 +31,7 @@ def adjust_cart(request, id):
         cart[id] = quantity
     else:
         cart.pop(id)
-    
+
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 
