@@ -43,8 +43,10 @@ def return_products(request):
     sort_by_value = 'start_date'
 
     if is_valid_query(sort_by_query):
-        if sort_by_query == 'price-high': sort_by_value = '-price'
-        if sort_by_query == 'price-low': sort_by_value = 'price'
+        if sort_by_query == 'price-high':
+                                        sort_by_value = '-price'
+        if sort_by_query == 'price-low':
+                                        sort_by_value = 'price'
 
     products = Product.objects.all().order_by(sort_by_value)
 
