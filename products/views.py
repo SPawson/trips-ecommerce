@@ -99,7 +99,7 @@ def return_products(request):
 
 def return_comments(pk):
     """Returns a list of comments for the selected product"""
-    comments = Comment.objects.filter(product_id=pk)[:5]
+    comments = Comment.objects.filter(product_id=pk).order_by("-id")[:5]
     return comments
 
 

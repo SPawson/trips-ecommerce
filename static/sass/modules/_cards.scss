@@ -206,13 +206,17 @@
                 padding: 8%;
 
                 @include media(large) {
-                    width: 42%;
+                    width: 46%;
                     padding: 2%;
                 }
 
+                .form-qty{
+                    width: 100%;
+                }
+
                 input {
-                    margin: 0 10% 0 3%;
-                    width: 10%;
+                    margin: 0 0 0 5%;
+                    max-width: 26%;
                 }
 
                 button {
@@ -241,7 +245,7 @@
         }
 
         .qty {
-            padding: 5% 0;
+            padding: 2% 0;
         }
 
     }
@@ -272,6 +276,7 @@
         }
 
         a {
+            color: #505962;
             margin-top: 3%;
         }
     }

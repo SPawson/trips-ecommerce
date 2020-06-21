@@ -42,7 +42,7 @@
               <img src="{% static 'images/sports-final.jpg' %}" alt="Sports category">
             </a>
           </div>
-          <p class="category-text">Sports</p>
+          <p  class="category-text"><a href="{% url 'products' %}?name-or-location-contains=&category-filter=1&country=&sort-by=&datepicker=">Sports</a></p>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
               <img src="{% static 'images/relax-final.jpg' %}" alt="Relax category">
             </a>
           </div>
-          <p class="category-text">Relax</p>
+          <p class="category-text"><a href="{% url 'products' %}?name-or-location-contains=&category-filter=2&country=&sort-by=&datepicker=">Relax</a></p>
         </div>
       </div>
 
@@ -64,7 +64,7 @@
               <img src="{% static 'images/outdoors-final.jpg' %}" alt="outdoors category">
             </a>
           </div>
-          <p class="category-text">Outdoors</p>
+          <p class="category-text"> <a href="{% url 'products' %}?name-or-location-contains=&category-filter=3&country=&sort-by=&datepicker=">Outdoors</a></p>
         </div>
       </div>
 
@@ -75,7 +75,7 @@
               <img src="{% static 'images/something-else-final.jpg' %}" alt="something else category">
             </a>
           </div>
-          <p class="category-text">Other</p>
+          <p class="category-text"><a href="{% url 'products' %}">Other</a></p>
         </div>
       </div>
     </div>

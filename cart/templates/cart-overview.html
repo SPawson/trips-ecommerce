@@ -24,21 +24,13 @@
                     <div class="col-12 form-container">
                         <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
                             {% csrf_token %}
-                            <div class="form-group text-center row">
-                                <div class="col-6">
-                                    <label class="sr-only">New Qty</label>
-                                    <div class="input-group">
-                                        <div class="qty">Qty:</div>
-                                        <input value="{{item.quantity}}" name="quantity" type="number" min="0" max="999"
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <button type="submit" class="btn btn-pale-prime"><span class="glyphicon glyphicon-edit"
-                                            aria-hidden="true"></span>Amend</button>
-                                </div>
-
-
+                            <div class="form-group text-center form-qty">
+                                <label class="sr-only">New Qty</label>
+                                <div class="qty">Qty:</div>
+                                <input value="{{item.quantity}}" name="quantity" type="number" min="0" max="999"
+                                    class="form-control">
+                                <button type="submit" class="btn btn-pale-prime"><span class="glyphicon glyphicon-edit"
+                                        aria-hidden="true"></span>Amend</button>
 
                             </div>
 
@@ -56,7 +48,7 @@
                     <p>You have no items in your cart</p>
                 </div>
                 {% endif %}
-                
+
 
 
 
