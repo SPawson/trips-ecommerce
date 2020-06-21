@@ -55,6 +55,10 @@
                 margin-top: 1%;
             }
         }
+
+        i.blue {
+            color: #5895d2;
+        }
     }
 
     &-title {
@@ -110,7 +114,6 @@
         }
 
         @include media(media) {
-
             width: 60%;
         }
 

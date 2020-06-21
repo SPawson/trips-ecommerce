@@ -311,6 +311,10 @@ form span.error-msg {
   }
 }
 
+.card-head i.blue {
+  color: #5895d2;
+}
+
 .card-title {
   margin-bottom: 1%;
 }

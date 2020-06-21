@@ -47,6 +47,8 @@ def return_products(request):
                                         sort_by_value = '-price'
         if sort_by_query == 'price-low':
                                         sort_by_value = 'price'
+        if sort_by_query == 'likes':
+                                        sort_by_value = '-likes'
 
     products = Product.objects.all().order_by(sort_by_value)
 

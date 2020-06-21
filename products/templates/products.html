@@ -44,6 +44,7 @@
                             <option value="" disabled selected>Sort By</option>
                             <option value="price-low">Price: Lowest</option>
                             <option value="price-high">Price: Highest</option>
+                            <option value="likes">Likes</option>
                         </select>
                     </div>
                     <div class="dates form-group col-sm-12 col-md-6">
@@ -87,6 +88,7 @@
                             <span class=""> - {{item.end_date}}</span>
                             {% endif %}
                         </div>
+                        <div class="col-12 card-head"> <span class="likes-text"> Likes </span>  <i class="fas fa-thumbs-up blue"></i> : {{ item.likes }}</div>
                     </div>
                     <div class="row card-mid">
                         <p class="card-text">{{item.snippet}}</p>
