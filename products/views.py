@@ -35,7 +35,7 @@ def return_products(request):
      upon their filter selections"""
 
     name_or_location_contains_query = request.GET.get(
-                                                      "name-or-location-contains")
+        "name-or-location-contains")
     category_query = request.GET.get("category-filter")
     country_query = request.GET.get("country")
     sort_by_query = request.GET.get("sort-by")
@@ -50,14 +50,16 @@ def return_products(request):
 
     products = Product.objects.all().order_by(sort_by_value)
 
+
     if is_valid_query(name_or_location_contains_query):
         products = products.filter(Q(name__icontains=name_or_location_contains_query)
-         |                         Q(location__icontains=name_or_location_contains_query
-                                    )).distinct().order_by(sort_by_value)
+         |  Q(location__icontains=name_or_location_contains_query
+        )).distinct().order_by(sort_by_value)
 
     if is_valid_query(category_query):
-        products = products.filter(category=category_query
-                                   ).order_by(sort_by_value)
+        products = products.filter(
+            category=category_query
+        ).order_by(sort_by_value)
 
     if is_valid_query(country_query):
         products = products.filter(country=country_query

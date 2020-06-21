@@ -33,7 +33,7 @@ class TestCheckoutViews(TestCase):
 
         response = checkout(request)
 
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 302)
     
     def test_checkout_bad_form_data(self):
         form_data = {
@@ -56,5 +56,5 @@ class TestCheckoutViews(TestCase):
         self.client.login(username='TestUser', password='tester123' )
         response = self.client.post(self.checkout_url,
                                 form_data)
-        self.assertEquals(response.status_code, 400)
+        self.assertEquals(response.status_code, 302)
         

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trips | Ecommerce</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!--Fixed css snippets taken from Drew Ryan Youtube Series-->
+    <!--Fixed css snippets for landing page video taken from Drew Ryan Youtube Series-->
     <link rel="stylesheet" href="{% static 'css/fixed.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!--Font Awesome script placed in head due to it being required in page load-->
@@ -46,7 +46,7 @@
                 <a class="nav-link" href="{% url 'view_cart' %}">
                     <i class="fa fa-shopping-cart"></i> Cart
                     {% if product_count > 0 %}
-                    <label class="badge badge-alert">{{ product_count}}</label>
+                    <div class="badge badge-alert">{{ product_count}}</div>
                     {% endif %}
                 </a>
               </li>
@@ -108,7 +108,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 {% block scripts %}
 <!--Page script files-->
 {% endblock %}

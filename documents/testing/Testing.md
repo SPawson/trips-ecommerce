@@ -201,5 +201,6 @@
 <li><a href=”https://jigsaw.w3.org/css-validator/” target="_blank">W3C CSS Validation</a> was used to validate CSS code.</li>
 <li><a href=”https://jshint.com/” target="_blank">JS Hint</a> was used to validate Javascript code.</li>
 </ul>
-<p>All of the validation tests resulted in a few minor changes that I needed to make, and all my files now conform to the latest web standards. </p>
+<p>All of the validation tests resulted in a few minor changes that I needed to make and now pass with minimal issues. Please note on my checkout page, I have used a JS package called Sweet Alert (https://sweetalert.js.org/guides/) , this results in some HTML validation errors due to the way the package renders its styles in the head. Unfortunatley, I am unable to change this at the moment.  </p>
+
 

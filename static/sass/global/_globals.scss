@@ -175,6 +175,11 @@ body {
             width: 15%;
         }
 
+        @include media(large) {
+            margin: 2% 1%;
+            width: 9%;
+        }
+
         &:hover{
             color: #fff;
             background-color: #7EBDC3;

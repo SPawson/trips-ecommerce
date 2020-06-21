@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/SPawson/trips-ecommerce.svg?branch=master)](https://travis-ci.org/SPawson/trips-ecommerce)
 <h1>Trips | Code Institute Fourth Milestone Project</h1>
 
-<p>This project has been completed as part of my submission for my fourth milestone stone project as part of my Code Institute Full stack software development course. The website is intended to replicate the look and functionality of other popular holiday and trip booking ecommerce sites. </p>
+<p>This project has been completed as part of my Code Institute Full stack software development course for my fourth milestone project . The website is intended to replicate the look and functionality of other popular holiday and trip booking ecommerce sites. </p>
 
 <p>The application includes a number of features, such as a full login system , ecommerce functionality, order history and other features expected in this type of site. In order to create this full stack application, I have used the Django framework with python and the Stripe API to handle the payment side. </p>
 
@@ -13,18 +13,25 @@
 <p>Test Card Number: 4242 4242 4242 4242</p>
 <p>Please see the Stripe Documentation for more information <a target="_blank" href="https://stripe.com/docs/testing">https://stripe.com/docs/testing.</a> </p>
 
+<p>Please note througout the document, I use the words Trips and Prodcuts interchangeably.</p>
+
 
 </hr>
 
 ## Overview
 
-<p>The main focus of this application was to create a Full Stack app to demonstrate the knowledge and skills I have learned through the entirety of the course. As mentioned above I have used a variety of languages/technologies in order to demonstrate my proficiency. For this project I am using Django/Python on the backend and am using JQuery, JavaScript, SASS and Stripe in order to allow me to create this. </p>
+<p>The main focus of this application was to create a Full Stack application to demonstrate the knowledge and skills I have learned throughout the entirety of the course. As mentioned above I have used a variety of languages/technologies in order to demonstrate my proficiency. For this project I am using Django/Python on the backend along with using JQuery, JavaScript, SASS and Stripe in order to allow me to create this. </p>
 
-<p>The main focus of the site experience is to allow users to find unique and interesting activities and trips to experience. This means that I have designed the site and included functionality in order to enhance the users experience when using the site and create a positive impression. </p>
+<p>The main focus of the site is to allow users to find unique and interesting activities and trips to experience. This means that I have designed the site and included certain functionality in order to enhance the users experience when using the site and to create a positive impression. </p>
 
 ## Wireframes
 <p> During the development stage of my project I generated some wireframes for both the mobile and desktop approaches using Balsamiq. Throughout the course of developing the website, I have deviated from the wireframes in certain sections. This is mainly due to me discovering a better design during the development, or issues with implementing the feature. </p>
 <p>The wireframes have been uploaded with the rest of my project and can be viewed <a target="_blank" href="documents/wireframes">here.</a></p>
+
+## Database schema
+
+During the planning stage of my project, I created the following database schema in order to assist me when developing my application and the models that would be required. Please note there may be slight variances in naming etc.
+<a  href="/documents/Database-Schema.png"  target="_blank"><img  src="/documents/Database-Schema.png"  alt="Trips DB Schema"/></a>
 
 
 ## User Stories
@@ -156,9 +163,9 @@
 <h3>Issues Encountered</h3>
 <p>Throughout the course of my testing, I discovered a few bugs which I have detailed below:</p>
 <ul>
-<li>One issue that I encountered was with trying to get my pagination to work with filtered content. The main issue I was encountering was that I could get pagination to show when I selected a filter type, however when I went to the next page, the filters would be lost. In order to resolve this, I had to create a template helper for my pagination, which checked every element of the query string and retrieve these key value pairs. After doing this, I made it so that these elements of the query string where then appended to the next and previous buttons on the pagination, so that the filter options were persisted no matter where you were in the pagination sequence. </li>
+<li>One issue that I encountered was with trying to get my pagination to work with filtered content. The main issue I was encountering was that I could get pagination to show when I selected a filter type, however when I went to the next page, the filters would be lost. In order to resolve this, I had to create a template helper for my pagination, which checked every element of the query string and retrieved these key value pairs. After doing this, I made it so that these elements of the query string were then appended to the next and previous buttons on the pagination, so that the filter options were persisted no matter where you were in the pagination sequence. </li>
 
-<li>Another issue that I encountered in my testing was with the google maps API when the product didn’t have any latitude or longitude properties set. This led to a number of errors in the console surrounding properties being set etc. In order to resolve this, I added data attributes to the map element that and then checked whether these were set or not in my code. I then wrapped the google maps code in an if else statement and the google maps API call would only be called if the latitude and longitude variables had values. </li>
+<li>Another issue that I encountered in my testing was with the google maps API when the product didn’t have any latitude or longitude properties set. This led to a number of errors in the console surrounding properties being null etc. In order to resolve this, I added data attributes to the map element and then checked whether these were set or not in my code. I then wrapped the google maps code in an if else statement and the google maps API call would only be called if the latitude and longitude variables had values. </li>
 </ul>
 
 ## Deployment
@@ -167,12 +174,12 @@
 <p>In order to run Trips locally the following steps can be taken:</p>
 
 1. To download or clone the site to your local machine you will need to go to my [repo]( https://github.com/SPawson/trips-ecommerce) and see the steps in https://help.github.com/en/articles/cloning-a-repository in order to clone my project.
-2.  Before you download or clone the site you will need to ensure you have [Python 3.7](https://www.python.org/downloads/) installed. 
-3. Once you have Python installed, create a virtual environment as appropriate to you chosen IDE and os. I recommend using [Microsoft visual code] (https://code.visualstudio.com/)
+2.  Before you download or clone the site you will need to ensure that you have [Python 3.7](https://www.python.org/downloads/) installed. 
+3. Once you have Python installed, create a virtual environment as appropriate to you chosen IDE and os. I recommend using Microsoft visual code (https://code.visualstudio.com/)
 4. In order to install all  of the dependencies required to run the project, you can do this via the requirements.txt file using the *****pip _install_ -r _requirements_.txt***** command once you have activated your virtual environment. This should install all of the packages listed in the file.
 5. Use the command ***python manage,py runserver*** to get the project running on your localhost.
 6. You will need to change the email settings in **settings.py** to get the project  to send password reset emails via your own email services.
-7. In order to deploy the site I used Heroku to my site. On Heroku I used a postgres to host my production database and used Heroku’s config vars in order to set the necessary environment variables to allow the site to run. I linked the Heroku app to the github repo via the deployment section of the Heroku app and set the automatic deployment option, so that the site would deploy on me pushing work to Github. I used gunicorn to run the app in heroku and whitenoise to manage the static files with AWS. A procfile is also needed by heroku with the line ***web: gunicorn dev_assist.wsgi:application*** to let heroku know how to run the web app. Heroku also requires the **requirement.txt** file to inform it of any relative dependencies for the app.
+7. In order to deploy the site I used Heroku. On Heroku I used a postgres db to host my production database and used Heroku’s config vars in order to set the necessary environment  variables to allow the site to run. I linked the Heroku app to my github repo via the deployment section of the Heroku app and set the automatic deployment option, so that the site would deploy on me pushing work to Github. I used gunicorn to run the app in heroku and whitenoise to manage the static files with AWS. A procfile is also needed by heroku with the line ***web: gunicorn dev_assist.wsgi:application*** to let heroku know how to run the web app. Heroku also requires the **requirement.txt** file to inform it of any relative dependencies for the app.
 
 <hr>
 
