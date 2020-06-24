@@ -12,13 +12,16 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def register(request):
     """Register new users"""
-    if request.method == "POST":
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('login'))
+    if request.user.is_authenticated:
+        return redirect(reverse('index'))
     else:
-        form = UserRegistrationForm()
+        if request.method == "POST":
+            form = UserRegistrationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect(reverse('login'))
+        else:
+            form = UserRegistrationForm()
     return render(request, "register.html", {"user_form": form})
 
 
