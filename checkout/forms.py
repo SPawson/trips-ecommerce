@@ -6,6 +6,9 @@ from .models import OrderInformation, OrderLineItem
 class OrderForm(forms.ModelForm):
     """ The form will collect user information for billing"""
 
+    address1 = forms.CharField(label="Address Line 1")
+    address2 = forms.CharField(label="Address Line 2")
+    
     class Meta: 
         model = OrderInformation
         fields = [
